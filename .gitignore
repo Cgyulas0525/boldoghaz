@@ -17,3 +17,19 @@ yarn-error.log
 .env.backup
 .phpunit.result.cache
 fields_sample.json
+
+# Project exclude paths
+/storage/app/
+/storage/bootstrap/
+/storage/config/
+/storage/database/
+/storage/debugbar/
+/storage/dist/
+/storage/docker/
+/storage/framework/
+/storage/plugins/
+/storage/public/
+/storage/resources/
+/storage/routes/
+/storage/storage/
+/storage/tests/
