@@ -16,7 +16,3 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/colreorder/1.5.5/css/colReorder.dataTables.min.css">
 
 <link rel="stylesheet" href="https://cdn.datatables.net/rowgroup/1.2.0/css/rowGroup.dataTables.min.css">
-
-
-<link rel="stylesheet" href={{ URL::asset('/public/css/app.css')}>
-

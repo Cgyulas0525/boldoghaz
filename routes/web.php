@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,37 +26,17 @@ Route::get('/home', [
     HomeController::class, 'index'
 ])->name('home');
 
-
-
-//Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder')->name('io_generator_builder');
-//
-//Route::get('field_template', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@fieldTemplate')->name('io_field_template');
-//
-//Route::get('relation_field_template', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@relationFieldTemplate')->name('io_relation_field_template');
-//
-//Route::post('generator_builder/generate', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generate')->name('io_generator_builder_generate');
-//
-//Route::post('generator_builder/rollback', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@rollback')->name('io_generator_builder_rollback');
-//
-//Route::post(
-//    'generator_builder/generate-from-file',
-//    '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generateFromFile'
-//)->name('io_generator_builder_generate_from_file');
+Route::get('index', [DashboardController::class, 'index'])->name('dashboard');
 
 
 
+Route::resource('userstatuses', App\Http\Controllers\UserstatusController::class);
 
 
+Route::resource('addresstypes', App\Http\Controllers\AddresstypesController::class);
 
 
+Route::resource('partnertypes', App\Http\Controllers\PartnertypesController::class);
 
 
-
-
-
-
-
-
-Route::resource('carousels', App\Http\Controllers\CarouselController::class);
-
-Route::resource('termeks', App\Http\Controllers\TermekController::class);
+Route::resource('users', App\Http\Controllers\UsersController::class);
