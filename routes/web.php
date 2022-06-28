@@ -40,3 +40,9 @@ Route::resource('partnertypes', App\Http\Controllers\PartnertypesController::cla
 
 
 Route::resource('users', App\Http\Controllers\UsersController::class);
+
+
+Route::resource('tables', App\Http\Controllers\TablesController::class);
+
+
+Route::resource('phonenumbertypes', App\Http\Controllers\PhonenumbertypesController::class);

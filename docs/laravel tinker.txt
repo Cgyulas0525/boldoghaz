@@ -1,0 +1,25 @@
+//for ( $i = 0; $i < count($datas); $i++) {
+//    echo $datas[$i]['Name'] . "\n";
+//}
+
+//$whs = DB::table('warehousedailybalance as t1')
+//    ->selectRaw('t1.Product, t1.Warehouse, max(t1.Date) as date')
+//    ->groupByRaw('t1.Product, t1.Warehouse');
+//
+//$whs1 = DB::table('warehousedailybalance as t1')
+//    ->joinSub($whs, 'whs', function ($join) {
+//        $join->on('t1.Product', 'whs.Product' )->on('t1.Warehouse', 'whs.Warehouse')->on('t1.Date', 'whs.date');
+//    })
+//    ->selectRaw('t1.Product, sum(Balance) as balance')
+//    ->groupByRaw('t1.Product');
+//
+//$whs2 = DB::table('product as t1')
+//    ->leftJoinSub($whs1, 'whs', function ($join) {
+//        $join->on('t1.Id', 'whs.Product');
+//    })
+//    ->select('t1.Name', 'whs.balance')
+//    ->get();
+//
+//foreach($whs2 as $wh) {
+//    echo $wh->Name . " " . $wh->balance . "\n";
+//}
