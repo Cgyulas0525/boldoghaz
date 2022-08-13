@@ -12,6 +12,7 @@ use Response;
 use Auth;
 use DB;
 use DataTables;
+use App\Models\Tables;
 
 class TablesController extends AppBaseController
 {
@@ -84,8 +85,6 @@ class TablesController extends AppBaseController
 
         $tables = $this->tablesRepository->create($input);
 
-//        Flash::success('Tables saved successfully.');
-
         return redirect(route('tables.index'));
     }
 
@@ -101,8 +100,6 @@ class TablesController extends AppBaseController
         $tables = $this->tablesRepository->find($id);
 
         if (empty($tables)) {
-//            Flash::error('Tables not found');
-
             return redirect(route('tables.index'));
         }
 
@@ -121,8 +118,6 @@ class TablesController extends AppBaseController
         $tables = $this->tablesRepository->find($id);
 
         if (empty($tables)) {
-//            Flash::error('Tables not found');
-
             return redirect(route('tables.index'));
         }
 
@@ -142,14 +137,10 @@ class TablesController extends AppBaseController
         $tables = $this->tablesRepository->find($id);
 
         if (empty($tables)) {
-//            Flash::error('Tables not found');
-
             return redirect(route('tables.index'));
         }
 
         $tables = $this->tablesRepository->update($request->all(), $id);
-
-//        Flash::success('Tables updated successfully.');
 
         return redirect(route('tables.index'));
     }
@@ -168,15 +159,22 @@ class TablesController extends AppBaseController
         $tables = $this->tablesRepository->find($id);
 
         if (empty($tables)) {
-//            Flash::error('Tables not found');
-
             return redirect(route('tables.index'));
         }
 
         $this->tablesRepository->delete($id);
 
-//        Flash::success('Tables deleted successfully.');
-
         return redirect(route('tables.index'));
     }
+
+    /*
+     * Tables dropdown for field select
+     *
+     * return array
+     */
+    public static function tablesDDW() : array
+    {
+        return [" "] + Tables::orderBy('name')->pluck('name', 'id')->toArray();
+    }
+
 }

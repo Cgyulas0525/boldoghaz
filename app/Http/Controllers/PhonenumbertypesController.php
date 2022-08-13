@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreatePhonenumbertypesRequest;
 use App\Http\Requests\UpdatePhonenumbertypesRequest;
+use App\Models\Phonenumbertypes;
 use App\Repositories\PhonenumbertypesRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -165,4 +166,15 @@ class PhonenumbertypesController extends AppBaseController
 
         return redirect(route('phonenumbertypes.index'));
     }
+
+    /*
+     * Dropdown for field select
+     *
+     * return array
+     */
+    public static function phonenumbertypesDDW() : array
+    {
+        return [" "] + Phonenumbertypes::orderBy('name')->pluck('name', 'id')->toArray();
+    }
+
 }

@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>Phonenumbertypes</h1>
+                    <h1>Telefonszám típus felvitel</h1>
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row">
 
+        @include('dashboard.dashboard')
 
     </div>
 </div>
