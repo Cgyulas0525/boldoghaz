@@ -172,7 +172,7 @@ class PhonenumbertypesController extends AppBaseController
      *
      * return array
      */
-    public static function phonenumbertypesDDW() : array
+    public static function DDDW() : array
     {
         return [" "] + Phonenumbertypes::orderBy('name')->pluck('name', 'id')->toArray();
     }

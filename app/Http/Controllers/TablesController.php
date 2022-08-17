@@ -172,7 +172,7 @@ class TablesController extends AppBaseController
      *
      * return array
      */
-    public static function tablesDDW() : array
+    public static function DDDW() : array
     {
         return [" "] + Tables::orderBy('name')->pluck('name', 'id')->toArray();
     }

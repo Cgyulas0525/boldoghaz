@@ -46,3 +46,9 @@ Route::resource('tables', App\Http\Controllers\TablesController::class);
 
 
 Route::resource('phonenumbertypes', App\Http\Controllers\PhonenumbertypesController::class);
+
+
+Route::resource('energyClassifications', App\Http\Controllers\EnergyClassificationsController::class);
+
+
+Route::resource('equipmenttypes', App\Http\Controllers\EquipmenttypesController::class);

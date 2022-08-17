@@ -25,7 +25,7 @@
         </a>
     </li>
     <li class="nav-item">
-        <a href="#" class="nav-link {{ Request::is('*statuses*') || Request::is('*types*')  ? 'active' : '' }}">
+        <a href="#" class="nav-link {{ Request::is('*statuses*') || Request::is('*types*') || Request::is('*Classifications*') ? 'active' : '' }}">
             <i class="fas fa-copy"></i>
             <p>
                 Szótár adatok
@@ -62,9 +62,25 @@
                     <p>Telefonszám típus</p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('energyClassifications.index') }}"
+                   class="nav-link {{ Request::is('energyClassifications*') ? 'active' : '' }}">
+                    <p>Energetikai besorolás</p>
+                </a>
+            </li>
+
+
+            <li class="nav-item">
+                <a href="{{ route('equipmenttypes.index') }}"
+                   class="nav-link {{ Request::is('equipmenttypes*') ? 'active' : '' }}">
+                    <p>Felszereltség típus</p>
+                </a>
+            </li>
         </ul>
     </li>
 @endif
+
+
 
 
 
