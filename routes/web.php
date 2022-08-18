@@ -52,3 +52,12 @@ Route::resource('energyClassifications', App\Http\Controllers\EnergyClassificati
 
 
 Route::resource('equipmenttypes', App\Http\Controllers\EquipmenttypesController::class);
+
+
+Route::resource('ecitems', App\Http\Controllers\EcitemsController::class);
+
+
+Route::resource('quantities', App\Http\Controllers\QuantityController::class);
+
+
+Route::resource('heatingtypes', App\Http\Controllers\HeatingtypesController::class);

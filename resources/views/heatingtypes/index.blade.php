@@ -13,7 +13,7 @@
             <div class="box-body">
                 <div class="col-lg-12 col-md-12 col-xs-12">
                     <section class="content-header">
-                        <h4>adatbázis táblák</h4>
+                        <h4>Fűtés típus</h4>
                     </section>
                     @include('flash::message')
                     <div class="clearfix"></div>
@@ -46,12 +46,11 @@
                 scrollY: 390,
                 scrollX: true,
                 order: [[1, 'asc']],
-                ajax: "{{ route('tables.index') }}",
+                ajax: "{{ route('heatingtypes.index') }}",
                 columns: [
-                    {title: '<a class="btn btn-primary" title="Felvitel" href="{!! route('tables.create') !!}"><i class="fa fa-plus-square"></i></a>',
+                    {title: '<a class="btn btn-primary" title="Felvitel" href="{!! route('heatingtypes.create') !!}"><i class="fa fa-plus-square"></i></a>',
                         data: 'action', sClass: "text-center", width: '200px', name: 'action', orderable: false, searchable: false},
                     {title: 'Név', data: 'name', name: 'name'},
-                    {title: 'Megjegyzés', data: 'commit', name: 'commit'},
                 ]
             });
 

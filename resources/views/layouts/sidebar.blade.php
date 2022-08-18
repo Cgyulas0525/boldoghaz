@@ -1,5 +1,5 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <a href="{{ route('home') }}" class="brand-link">
+    <a href="https://www.boldoghaz.hu/" class="brand-link">
         <img src={{ URL::asset('/public/img/BoldogHaz.png') }}
              alt="{{ config('app.name') }} Logo"
              class="brand-image img-circle elevation-3">
