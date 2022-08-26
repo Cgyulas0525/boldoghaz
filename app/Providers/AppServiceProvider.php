@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Http\Controllers\DDDWController;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Gate;
+use Auth;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +30,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Gate::define('felhasználó', function() {
+            return Auth::user()->userstatus_id == 1;
+        });
+        Gate::define('rendszergazda', function() {
+            return Auth::user()->userstatus_id == 2;
+        });
+        Gate::define('fejlesztő', function() {
+            return Auth::user()->userstatus_id == 3;
+        });
     }
 }

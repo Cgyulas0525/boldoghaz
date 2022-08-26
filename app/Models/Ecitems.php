@@ -21,7 +21,7 @@ class Ecitems extends Model
     use HasFactory;
 
     public $table = 'ecitems';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -59,5 +59,13 @@ class Ecitems extends Model
         'deleted_at' => 'nullable'
     ];
 
-    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function ececitems()
+    {
+        return $this->hasMany(\App\Models\Ececitems::class, 'ecitems_id');
+    }
+
+
 }

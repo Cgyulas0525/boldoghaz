@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateQuantityRequest;
 use App\Http\Requests\UpdateQuantityRequest;
+use App\Models\Quantity;
 use App\Repositories\QuantityRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -173,7 +174,7 @@ class QuantityController extends AppBaseController
          */
         public static function DDDW() : array
         {
-            return [" "] + $this->quantityRepository->orderBy('name')->pluck('name', 'id')->toArray();
+            return [" "] + Quantity::orderBy('name')->pluck('name', 'id')->toArray();
         }
 }
 

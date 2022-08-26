@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateEcitemsRequest;
 use App\Http\Requests\UpdateEcitemsRequest;
+use App\Models\Ecitems;
 use App\Repositories\EcitemsRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -171,10 +172,30 @@ class EcitemsController extends AppBaseController
          *
          * return array
          */
-        public static function DDDW() : array
+        public static function DDDW($id = 0) : array
         {
-            return [" "] + $this->ecitemsRepository->orderBy('name')->pluck('name', 'id')->toArray();
+            if ($id == 0) {
+                return [" "] + Ecitems::orderBy('name')->pluck('name', 'id')->toArray();
+            }
+            if ($id != 0) {
+                return [" "] + Ecitems::whereNotIn('id', function($query) use($id) {
+                    $query->from('ececitems')->select('ecitems_id')->where('energyclassifications_id', $id)->get();
+                })->orderBy('name')->pluck('name', 'id')->toArray();
+            }
+            return [" "];
         }
+
+//        /*
+//         * Dropdown for field select records not in ececitems table
+//         *
+//         * @param $id energyclassifications_id
+//         *
+//         * return array
+//         */
+//        public function DDDW($id) : array
+//        {
+//            return [" "] + Ecitems::orderBy('name')->pluck('name', 'id')->toArray();
+//        }
 }
 
 

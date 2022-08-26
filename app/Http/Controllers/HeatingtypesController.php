@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateHeatingtypesRequest;
 use App\Http\Requests\UpdateHeatingtypesRequest;
+use App\Models\Heatingtypes;
 use App\Repositories\HeatingtypesRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -173,7 +174,7 @@ class HeatingtypesController extends AppBaseController
          */
         public static function DDDW() : array
         {
-            return [" "] + $this->heatingtypesRepository->orderBy('name')->pluck('name', 'id')->toArray();
+            return [" "] + Heatingtypes::orderBy('name')->pluck('name', 'id')->toArray();
         }
 }
 

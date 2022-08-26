@@ -6,7 +6,7 @@
     </a>
 </li>
 
-@if (Auth::user()->userstatus_id > 0)
+@cannot('felhasználó')
     <li class="nav-item">
         <a href="{{ route('users.index') }}"
            class="nav-link {{ Request::is('users*') && empty(Request::is('*statuses*')) ? 'active' : '' }}">
@@ -14,10 +14,7 @@
             <p>Felhasználók</p>
         </a>
     </li>
-@endif
-
-@if (Auth::user()->userstatus_id > 0)
-    @if (Auth::user()->userstatus_id > 1)
+    @can('fejlesztő')
         <li class="nav-item">
             <a href="{{ route('tables.index') }}"
                class="nav-link {{ Request::is('tables*') ? 'active' : '' }}">
@@ -25,11 +22,14 @@
                 <p>Táblák</p>
             </a>
         </li>
-    @endif
+    @endcan
     <li class="nav-item">
         <a href="#" class="nav-link {{ Request::is('*statuses*') ||
                                        Request::is('*types*') ||
                                        Request::is('ecitems*') ||
+                                       Request::is('eqitems*') ||
+                                       Request::is('quantities*') ||
+                                       Request::is('structures*') ||
                                        Request::is('*Classifications*') ? 'active' : '' }}">
             <i class="fas fa-copy"></i>
             <p>
@@ -39,7 +39,7 @@
             </p>
         </a>
         <ul class="nav nav-treeview">
-            @if (Auth::user()->userstatus_id > 1)
+            @can('fejlesztő')
                 <li class="nav-item">
                     <a href="{{ route('userstatuses.index') }}"
                        class="nav-link {{ Request::is('userstatuses*') ? 'active' : '' }}">
@@ -69,6 +69,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('eqitems.index') }}"
+                       class="nav-link {{ Request::is('eqitems*') ? 'active' : '' }}">
+                        <i class="fas fa-door-open"></i>
+                        <p>Felszereltség elem</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('equipmenttypes.index') }}"
                        class="nav-link {{ Request::is('equipmenttypes*') ? 'active' : '' }}">
                         <i class="fas fa-house-damage"></i>
@@ -83,39 +90,52 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('ecitems.index') }}"
+                       class="nav-link {{ Request::is('ecitems*') ? 'active' : '' }}">
+                        <i class="fas fa-solar-panel"></i>
+                        <p>Energ. besorolás elem</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('energyClassifications.index') }}"
                        class="nav-link {{ Request::is('energyClassifications*') ? 'active' : '' }}">
                         <i class="fas fa-sun"></i>
                         <p>Energetikai besorolás</p>
                     </a>
                 </li>
-            @endif
+            @endcan
             <li class="nav-item">
-                <a href="{{ route('ecitems.index') }}"
-                   class="nav-link {{ Request::is('ecitems*') ? 'active' : '' }}">
-                    <i class="fas fa-solar-panel"></i>
-                    <p>Energ. besorolás elem</p>
+                <a href="{{ route('quantities.index') }}"
+                   class="nav-link {{ Request::is('quantities*') ? 'active' : '' }}">
+                    <i class="fas fa-pencil-ruler"></i>
+                    <p>Mennyiségi egység</p>
                 </a>
             </li>
+            @cannot('felhasználó')
                 <li class="nav-item">
-                    <a href="{{ route('quantities.index') }}"
-                       class="nav-link {{ Request::is('quantities*') ? 'active' : '' }}">
-                        <i class="fas fa-pencil-ruler"></i>
-                        <p>Mennyiségi egység</p>
+                    <a href="{{ route('structures.index') }}"
+                       class="nav-link {{ Request::is('structures*') ? 'active' : '' }}">
+                        <i class="fas fa-cogs"></i>
+                        <p>Alapszerkezetek</p>
                     </a>
                 </li>
+            @endcannot
         </ul>
     </li>
-@endif
+@endcannot
 
+{{--<li class="nav-item">--}}
+{{--    <a href="{{ route('ececitems.index') }}"--}}
+{{--       class="nav-link {{ Request::is('ececitems*') ? 'active' : '' }}">--}}
+{{--        <p>Ececitems</p>--}}
+{{--    </a>--}}
+{{--</li>--}}
 
-
-
-
-
-
-
-
-
+{{--<li class="nav-item">--}}
+{{--    <a href="{{ route('eqeqitems.index') }}"--}}
+{{--       class="nav-link {{ Request::is('eqeqitems*') ? 'active' : '' }}">--}}
+{{--        <p>Eqeqitems</p>--}}
+{{--    </a>--}}
+{{--</li>--}}
 
 

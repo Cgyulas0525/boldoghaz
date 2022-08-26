@@ -7,20 +7,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Class Quantity
+ * Class Eqitems
  * @package App\Models
- * @version August 18, 2022, 9:43 am UTC
+ * @version August 26, 2022, 11:54 am UTC
  *
  * @property string $name
  * @property string $commit
  */
-class Quantity extends Model
+class Eqitems extends Model
 {
     use SoftDeletes;
 
     use HasFactory;
 
-    public $table = 'quantity';
+    public $table = 'eqitems';
 
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -62,10 +62,9 @@ class Quantity extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function ececitems()
+    public function eqecitems()
     {
-        return $this->hasMany(\App\Models\Ececitems::class, 'quantity_id');
+        return $this->hasMany(\App\Models\Eqeqitems::class, 'eqitems_id');
     }
-
 
 }

@@ -21,7 +21,7 @@ class Heatingtypes extends Model
     use HasFactory;
 
     public $table = 'heatingtypes';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -59,5 +59,13 @@ class Heatingtypes extends Model
         'deleted_at' => 'nullable'
     ];
 
-    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function ececitems()
+    {
+        return $this->hasMany(\App\Models\Ececitems::class, 'heatingtypes_id');
+    }
+
+
 }
