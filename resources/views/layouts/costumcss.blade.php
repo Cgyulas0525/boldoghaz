@@ -237,7 +237,7 @@
     .table tbody tr td {
         width: auto;
         background-image: none !important;
-        color: black !important;
+        color: black;
         font-family: Palatino, URW Palladio L, serif !important;
         font-size: 14px !important;
         font-weight: 500 !important;
@@ -408,7 +408,7 @@
         width: auto;
         background-image: none !important;
         background-color: lightgrey !important;
-        color: black !important;
+        color: black;
         font-family: Palatino, URW Palladio L, serif !important;
         font-weight: bold !important;
         font-size: 16px !important;
@@ -435,11 +435,14 @@
     }
 
     .tablesmall.dataTable tbody tr.selected {
-        color: black !important;
-        background-color: gray !important;
+        color: black;
+        background-color: gray;
         font-family: Palatino, URW Palladio L, serif !important;
         font-size: 14px !important;
         font-weight: bold !important;
     }
 
+    .red {
+        background-color: red !important;
+    }
 </style>

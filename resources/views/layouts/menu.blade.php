@@ -30,6 +30,8 @@
                                        Request::is('eqitems*') ||
                                        Request::is('quantities*') ||
                                        Request::is('structures*') ||
+                                       Request::is('additionalelements*') ||
+                                       Request::is('settlements*') ||
                                        Request::is('*Classifications*') ? 'active' : '' }}">
             <i class="fas fa-copy"></i>
             <p>
@@ -119,7 +121,40 @@
                         <p>Alapszerkezetek</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('additionalelements.index') }}"
+                       class="nav-link {{ Request::is('additionalelements*') ? 'active' : '' }}">
+                        <i class="fas fa-cubes"></i>
+                        <p>Kiegészítő elemek</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('settlements.index') }}"
+                       class="nav-link {{ Request::is('settlements*') ? 'active' : '' }}">
+                        <i class="fas fa-city"></i>
+                        <p>Települések</p>
+                    </a>
+                </li>
             @endcannot
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a href="#" class="nav-link {{ Request::is('*Classifications*') ? 'active' : '' }}">
+            <i class="fas fa-users-cog"></i>
+            <p>
+                CRM
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right"></span>
+            </p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{ route('settlements.index') }}"
+                   class="nav-link {{ Request::is('settlements*') ? 'active' : '' }}">
+                    <i class="fas fa-users-cog"></i>
+                    <p>Partnerek</p>
+                </a>
+            </li>
         </ul>
     </li>
 @endcannot
@@ -137,5 +172,6 @@
 {{--        <p>Eqeqitems</p>--}}
 {{--    </a>--}}
 {{--</li>--}}
+
 
 

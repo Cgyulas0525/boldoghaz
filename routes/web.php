@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EcecitemsController;
 use App\Http\Controllers\EqeqitemsController;
+use App\Http\Controllers\PartnertypeChildController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,10 @@ Route::resource('structures', App\Http\Controllers\StructuresController::class);
 Route::resource('eqitems', App\Http\Controllers\EqitemsController::class);
 Route::resource('eqeqitems', App\Http\Controllers\EqeqitemsController::class);
 Route::get('indexEQ/{id}', [EqeqitemsController::class, 'indexEQ'])->name('indexEQ');
+Route::resource('additionalelements', App\Http\Controllers\AdditionalelementsController::class);
+Route::get('index/{id}', [PartnertypeChildController::class, 'index'])->name('ptChildIndex');
+Route::get('create/{id}', [PartnertypeChildController::class, 'create'])->name('ptChildCreate');
+Route::post('store', [PartnertypeChildController::class, 'store'])->name('ptChildStore');
+
+
+Route::resource('settlements', App\Http\Controllers\SettlementsController::class);
