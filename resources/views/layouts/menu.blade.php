@@ -32,6 +32,7 @@
                                        Request::is('structures*') ||
                                        Request::is('additionalelements*') ||
                                        Request::is('settlements*') ||
+                                       Request::is('financialinstitutions*') ||
                                        Request::is('*Classifications*') ? 'active' : '' }}">
             <i class="fas fa-copy"></i>
             <p>
@@ -113,6 +114,13 @@
                     <p>Mennyiségi egység</p>
                 </a>
             </li>
+                <li class="nav-item">
+                    <a href="{{ route('financialinstitutions.index') }}"
+                       class="nav-link {{ Request::is('financialinstitutions*') ? 'active' : '' }}">
+                        <i class="fas fa-piggy-bank"></i>
+                        <p>Péznintézetek</p>
+                    </a>
+                </li>
             @cannot('felhasználó')
                 <li class="nav-item">
                     <a href="{{ route('structures.index') }}"
@@ -139,7 +147,10 @@
         </ul>
     </li>
     <li class="nav-item">
-        <a href="#" class="nav-link {{ Request::is('*Classifications*') ? 'active' : '' }}">
+        <a href="#" class="nav-link {{ Request::is('partners*') ||
+                                       Request::is('addresses*') ||
+                                       Request::is('emails*') ||
+                                       Request::is('phonenumbers*') ? 'active' : '' }}">
             <i class="fas fa-users-cog"></i>
             <p>
                 CRM
@@ -149,29 +160,42 @@
         </a>
         <ul class="nav nav-treeview">
             <li class="nav-item">
-                <a href="{{ route('settlements.index') }}"
-                   class="nav-link {{ Request::is('settlements*') ? 'active' : '' }}">
+                <a href="{{ route('partners.index') }}"
+                   class="nav-link {{ Request::is('partners*') ? 'active' : '' }}">
                     <i class="fas fa-users-cog"></i>
                     <p>Partnerek</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('addresses.index') }}"
+                   class="nav-link {{ Request::is('addresses*') ? 'active' : '' }}">
+                    <i class="fas fa-address-card"></i>
+                    <p>Címek</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('emails.index') }}"
+                   class="nav-link {{ Request::is('emails*') ? 'active' : '' }}">
+                    <i class="fas fa-at"></i>
+                    <p>Email címek</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('phonenumbers.index') }}"
+                   class="nav-link {{ Request::is('phonenumbers*') ? 'active' : '' }}">
+                    <i class="fas fa-mobile"></i>
+                    <p>Telefonszámok</p>
                 </a>
             </li>
         </ul>
     </li>
 @endcannot
 
-{{--<li class="nav-item">--}}
-{{--    <a href="{{ route('ececitems.index') }}"--}}
-{{--       class="nav-link {{ Request::is('ececitems*') ? 'active' : '' }}">--}}
-{{--        <p>Ececitems</p>--}}
-{{--    </a>--}}
-{{--</li>--}}
-
-{{--<li class="nav-item">--}}
-{{--    <a href="{{ route('eqeqitems.index') }}"--}}
-{{--       class="nav-link {{ Request::is('eqeqitems*') ? 'active' : '' }}">--}}
-{{--        <p>Eqeqitems</p>--}}
-{{--    </a>--}}
-{{--</li>--}}
-
+<li class="nav-item">
+    <a href="{{ route('partnerbankaccounts.index') }}"
+       class="nav-link {{ Request::is('partnerbankaccounts*') ? 'active' : '' }}">
+        <p>Partnerbankaccounts</p>
+    </a>
+</li>
 
 

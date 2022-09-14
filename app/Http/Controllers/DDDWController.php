@@ -12,8 +12,11 @@ class DDDWController extends Controller
         $dddw = new DDDW($model, $where);
         return $dddw->basicDDDW();
     }
-}
 
+    public static function postalCodeDDDW()
+    {
+        
+    }
 //pl:
 //$where = [
 //    "id" => ["op" => ">", "values" => "1"],
@@ -23,3 +26,6 @@ class DDDWController extends Controller
 //$data = App\Http\Controllers\DDDWController::alapDDDW('partnertypes', $where);
 //
 //dd($data);
+
+}
+

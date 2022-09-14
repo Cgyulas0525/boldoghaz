@@ -43,9 +43,10 @@
 
             var table = $('.partners-table').DataTable({
                 serverSide: true,
-                scrollY: 390,
+                scrollY: 550,
                 scrollX: true,
                 order: [[1, 'asc']],
+                paging: false,
                 ajax: "{{ route('tables.index') }}",
                 columns: [
                     {title: '<a class="btn btn-primary" title="Felvitel" href="{!! route('tables.create') !!}"><i class="fa fa-plus-square"></i></a>',

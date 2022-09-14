@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ecitems;
+use App\Models\Partners;
 use Illuminate\Http\Request;
 use Response;
 use App\Classes\ptClass;
@@ -19,6 +20,13 @@ class ApiController extends Controller
     public function partnerTypes(Request $request) {
         $ptc = new ptClass();
         return Response::json($ptc->selectData());
+    }
+
+    public function changePartnerLive(Request $request) {
+        $partner = Partners::find($request->id);
+        $partner->live = $request->live == 0 ? 1 : 0;
+        $partner->save();
+        return redirect(route('partners.index'));
     }
 }
 

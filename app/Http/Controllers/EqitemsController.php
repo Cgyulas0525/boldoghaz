@@ -176,7 +176,7 @@ class EqitemsController extends AppBaseController
          */
         public static function DDDW() : array
         {
-            return [" "] + eqitems::orderBy('name')->pluck('name', 'id')->toArray();
+            return [" "] + Eqitems::orderBy('name')->pluck('name', 'id')->toArray();
         }
 }
 
