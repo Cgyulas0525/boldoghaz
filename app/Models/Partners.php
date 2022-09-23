@@ -87,4 +87,10 @@ class Partners extends Model
         return $this->hasMany(\App\Models\Partnerbankaccounts::class, 'partners_id');
     }
 
+    public function partnerpartnertypes()
+    {
+        return $this->hasMany(\App\Models\Partnerspartnertypes::class, 'partner_id');
+    }
+
+
 }

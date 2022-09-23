@@ -14,6 +14,8 @@ use App\Http\Controllers\AddressController;
 use App\Http\Controllers\PhonenumbersController;
 use App\Http\Controllers\EmailsController;
 use App\Http\Controllers\PartnerbankaccountsController;
+use App\Http\Controllers\ContracttypesController;
+use App\Http\Controllers\DestroysController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,5 +90,12 @@ Route::get('pbaCreate/{id}', [PartnerbankaccountsController::class, 'pbaCreate']
 
 Route::resource('financialinstitutions', App\Http\Controllers\FinancialinstitutionsController::class);
 
-
 Route::resource('partnerbankaccounts', App\Http\Controllers\PartnerbankaccountsController::class);
+
+Route::resource('contracttypes', App\Http\Controllers\ContracttypesController::class);
+
+Route::resource('housetypes', App\Http\Controllers\HousetypesController::class);
+
+Route::get('destroy/{table}/{id}/{route}', [DestroysController::class, 'destroy'])->name('destroys');
+
+

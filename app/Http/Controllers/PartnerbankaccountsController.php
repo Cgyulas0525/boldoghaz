@@ -31,6 +31,8 @@ class PartnerbankaccountsController extends AppBaseController
     {
         return Datatables::of($data)
             ->addIndexColumn()
+            ->addColumn('institutName', function($data) { return $data->institutName; })
+            ->addColumn('partnerName', function($data) { return $data->partnerName; })
             ->addColumn('action', function($row){
                 $btn = '<a href="' . route('partnerbankaccounts.edit', [$row->id]) . '"
                              class="edit btn btn-success btn-sm editProduct" title="Módosítás"><i class="fa fa-paint-brush"></i></a>';

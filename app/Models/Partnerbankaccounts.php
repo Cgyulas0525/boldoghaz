@@ -78,9 +78,9 @@ class Partnerbankaccounts extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function partner()
+    public function partners()
     {
-        return $this->belongsTo(\App\Models\Partners::class, 'partners_id');
+        return $this->belongsTo(\App\Models\Partners::class);
     }
 
     protected $append = [

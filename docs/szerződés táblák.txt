@@ -1,0 +1,212 @@
+1 contracttypes           szerződés típus
+
+id
+name
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+1 housetypes           ház típus
+
+id
+name
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+
+2 contract:
+
+id
+contracttypes_id        szerződés típus
+contractnumber		szerződésszám
+contractdate		szerződés dátum
+customer		megrendelő
+entrepreneur		vállalkozó
+constructionplace	kivitelezés helye
+energyclassification	energetikai besorolás
+equipmentlevel 		felszereltségi szint
+housetypes_id		ház típusa
+nettom2			netto m2
+bruttom2		brutto m2
+amount			összeg
+deadline                határidő
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+3 contractsubject:        szerződés tárgya
+
+id
+contract_id
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+4 contractcontent         szerződés tartalma
+
+id
+contract_id
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+5 contractnoncontent      szerződés nem tartalmazza
+
+id
+contract_id
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+6 contractcustomerprovide megrendelő biztosítja
+
+id
+contract_id
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+7 contractpayment         fizetési részletek
+
+id
+contract_id
+advance                 előleg
+date                    fizetés dátuma
+deadline                rész határidő
+performance             teljesítési feltétel
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+8 contractdeadline        határidők
+
+id
+contract_id
+deadline                határidő
+performance             teljesítés
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+9 penaltytypes           kötbér típus
+
+id
+name
+businessrates           vállalkozási díj %
+daypenalty              kötbér napi %
+daypanaltymax           kötbér % max
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+10 contractpenalty        kötbér
+
+id
+contract_id
+constructionphase_id    kivitelezési fázis
+deadline                határidő
+performance             teljesítés
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+
+11 constructionphase       kivitelezési fázisok
+
+id
+name
+parent_id               szülő
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+12 retentions              visszatartások
+
+id
+name
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+13 contractretention       szerződés visszatartások
+
+id
+contract_id
+retentions_id           visszatartás típus
+deadline                határidő
+percent                 százalék
+amount                  összeg
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+14 annextypes              melléklet típus
+
+id
+name
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+15 contractannex           szerződés melléklet
+
+id
+contract_id
+annextypes_id           melléklet típus
+document                dokumentum
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+16 vismaiortypes           vis major tipusok
+
+id
+name
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+17 contractannex           szerződés melléklet
+
+id
+contract_id
+vismaiortypes_id        vis major típus
+document                dokumentum
+date                    dátum
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+18 contractcontract        alvállakozói szerződések
+
+id
+contract_id
+partnercontract_id      partner szerződés
+constructionphase_id    kivitelezési fázis
+document                dokumentum
+date                    dátum
+deadline                 határidő
+settlementdate          teljesítési dátum
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at

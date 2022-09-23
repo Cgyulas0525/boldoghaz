@@ -68,6 +68,15 @@ class Partnerspartnertypes extends Model
         'typesName'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function partners()
+    {
+        return $this->belongsTo(\App\Models\Partners::class, 'partner_id');
+    }
+
+
     public function getPartnerNameAttribute() {
         return !empty($this->partner_id) ? Partners::find($this->partner_id)->name : '';
     }

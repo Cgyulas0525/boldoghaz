@@ -13,7 +13,7 @@
             <div class="box-body">
                 <div class="col-lg-12 col-md-12 col-xs-12">
                     <section class="content-header">
-                        <h4>Bankszámlaszámok</h4>
+                        <h4>Housetypes</h4>
                     </section>
                     @include('flash::message')
                     <div class="clearfix"></div>
@@ -45,12 +45,12 @@
                 serverSide: true,
                 scrollY: 390,
                 scrollX: true,
-                order: [[0, 'asc'], [1, 'asc'], [2, 'asc']],
-                ajax: "{{ route('partnerbankaccounts.index') }}",
+                order: [[1, 'asc']],
+                ajax: "{{ route('housetypes.index') }}",
                 columns: [
-                    {title: 'Partner', data: 'partnerName', name: 'partnerName'},
-                    {title: 'Pénzintézet', data: 'institutName', name: 'institutName'},
-                    {title: 'Bankszámlaszám', data: 'accountnumber', name: 'accountnumber'},
+                    {title: '<a class="btn btn-primary" title="Felvitel" href="{!! route('housetypes.create') !!}"><i class="fa fa-plus-square"></i></a>',
+                        data: 'action', sClass: "text-center", width: '200px', name: 'action', orderable: false, searchable: false},
+                    {title: 'Név', data: 'name', name: 'name'},
                 ]
             });
 
