@@ -77,6 +77,10 @@ class Eqeqitems extends Model
         return !empty($this->eqitems_id) ? Eqitems::find($this->eqitems_id)->name : '';
     }
 
+    public function getEqNameAttribute() {
+        return !empty($this->equipmenttypes_id) ? Equipmenttypes::find($this->equipmenttypes_id)->name : '';
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/

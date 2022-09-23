@@ -97,5 +97,15 @@ Route::resource('contracttypes', App\Http\Controllers\ContracttypesController::c
 Route::resource('housetypes', App\Http\Controllers\HousetypesController::class);
 
 Route::get('destroy/{table}/{id}/{route}', [DestroysController::class, 'destroy'])->name('destroys');
+Route::get('beforeDestroys/{table}/{id}/{route}', [DestroysController::class, 'beforeDestroys'])->name('beforeDestroys');
 
 
+
+
+Route::resource('retentiontypes', App\Http\Controllers\RetentiontypesController::class);
+
+
+Route::resource('annextypes', App\Http\Controllers\AnnextypesController::class);
+
+
+Route::resource('vismaiortypes', App\Http\Controllers\VismaiortypesController::class);

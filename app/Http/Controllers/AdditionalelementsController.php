@@ -33,8 +33,8 @@ class AdditionalelementsController extends AppBaseController
             ->addColumn('action', function($row){
                 $btn = '<a href="' . route('additionalelements.edit', [$row->id]) . '"
                              class="edit btn btn-success btn-sm editProduct" title="Módosítás"><i class="fa fa-paint-brush"></i></a>';
-                $btn = $btn.'<a href="' . route('additionalelements.destroy', [$row->id]) . '"
-                             class="btn btn-danger btn-sm deleteProduct" title="Törlés"><i class="fa fa-trash"></i></a>';
+                $btn = $btn.'<a href="' . route('beforeDestroys', ['Additionalelements', $row["id"], 'additionalelements']) . '"
+                                 class="btn btn-danger btn-sm deleteProduct" title="Törlés"><i class="fa fa-trash"></i></a>';
                 return $btn;
             })
             ->rawColumns(['action'])

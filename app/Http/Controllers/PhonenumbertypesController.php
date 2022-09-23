@@ -31,7 +31,7 @@ class PhonenumbertypesController extends AppBaseController
             ->addColumn('action', function($row){
                 $btn = '<a href="' . route('phonenumbertypes.edit', [$row->id]) . '"
                              class="edit btn btn-success btn-sm editProduct" title="Módosítás"><i class="fa fa-paint-brush"></i></a>';
-                $btn = $btn.'<a href="' . route('destroys', ['Phonenumbertypes', $row["id"], 'phonenumbertypes']) . '"
+                $btn = $btn.'<a href="' . route('beforeDestroys', ['Phonenumbertypes', $row["id"], 'phonenumbertypes']) . '"
                                  class="btn btn-danger btn-sm deleteProduct" title="Törlés"><i class="fa fa-trash"></i></a>';
                 return $btn;
             })

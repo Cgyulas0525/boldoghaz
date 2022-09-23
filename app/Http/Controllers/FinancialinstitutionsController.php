@@ -33,8 +33,8 @@ class FinancialinstitutionsController extends AppBaseController
             ->addColumn('action', function($row){
                 $btn = '<a href="' . route('financialinstitutions.edit', [$row->id]) . '"
                              class="edit btn btn-success btn-sm editProduct" title="Módosítás"><i class="fa fa-paint-brush"></i></a>';
-                $btn = $btn.'<a href="' . route('financialinstitutions.destroy', [$row->id]) . '"
-                             class="btn btn-danger btn-sm deleteProduct" title="Törlés"><i class="fa fa-trash"></i></a>';
+                $btn = $btn.'<a href="' . route('beforeDestroys', ['Financialinstitutions', $row["id"], 'financialinstitutions']) . '"
+                                 class="btn btn-danger btn-sm deleteProduct" title="Törlés"><i class="fa fa-trash"></i></a>';
                 return $btn;
             })
             ->rawColumns(['action'])

@@ -23,11 +23,8 @@
             </a>
         </li>
     @endcan
-    @include('layouts.szotarmenu')
-    @include('layouts.crmmenu')
-    @include('layouts.projectmenu')
 @endcannot
 
-
-
-
+@include('layouts.szotarmenu')
+@include('layouts.crmmenu')
+@include('layouts.projectmenu')

@@ -16,6 +16,34 @@ created_at
 updated_at
 deleted_at
 
+12 retentiontypes       visszatartások
+
+id
+name
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+14 annextypes              melléklet típus
+
+id
+name
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+16 vismaiortypes           vis major tipusok
+
+id
+name
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+----------------------------------------
 
 2 contract:
 
@@ -133,15 +161,6 @@ created_at
 updated_at
 deleted_at
 
-12 retentions              visszatartások
-
-id
-name
-commit                  megjegyzés
-created_at
-updated_at
-deleted_at
-
 13 contractretention       szerződés visszatartások
 
 id
@@ -155,30 +174,12 @@ created_at
 updated_at
 deleted_at
 
-14 annextypes              melléklet típus
-
-id
-name
-commit                  megjegyzés
-created_at
-updated_at
-deleted_at
-
 15 contractannex           szerződés melléklet
 
 id
 contract_id
 annextypes_id           melléklet típus
 document                dokumentum
-commit                  megjegyzés
-created_at
-updated_at
-deleted_at
-
-16 vismaiortypes           vis major tipusok
-
-id
-name
 commit                  megjegyzés
 created_at
 updated_at

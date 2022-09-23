@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>Ház típus</h1>
+                    <h1>Visszatartás típus</h1>
                 </div>
             </div>
         </div>
@@ -17,19 +17,19 @@
 
         <div class="card">
 
-            {!! Form::open(['route' => 'housetypes.store']) !!}
+            {!! Form::open(['route' => 'retentiontypes.store']) !!}
 
             <div class="card-body">
 
                 <div class="row">
-                    @include('housetypes.fields')
+                    @include('retentiontypes.fields')
                 </div>
 
             </div>
 
             <div class="card-footer">
                 {!! Form::submit('Ment', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('housetypes.index') }}" class="btn btn-default">Kilép</a>
+                <a href="{{ route('retentiontypes.index') }}" class="btn btn-default">Kilép</a>
             </div>
 
             {!! Form::close() !!}

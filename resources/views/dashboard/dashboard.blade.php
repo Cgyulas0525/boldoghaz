@@ -9,11 +9,11 @@
 
 @section('content')
     <div class="row">
-        @if (Auth::user()->userstatus_id == 0)
+        @if (Auth::user()->userstatus_id == 1)
             @include('dashboard.userdashboard')
-        @elseif (Auth::user()->userstatus_id == 1)
-            @include('dashboard.admindashboard')
         @elseif (Auth::user()->userstatus_id == 2)
+            @include('dashboard.admindashboard')
+        @elseif (Auth::user()->userstatus_id == 3)
             @include('dashboard.devdashboard')
         @endif
     </div>

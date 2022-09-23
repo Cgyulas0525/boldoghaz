@@ -33,7 +33,7 @@ class ContracttypesController extends AppBaseController
             ->addColumn('action', function($row){
                 $btn = '<a href="' . route('contracttypes.edit', [$row->id]) . '"
                              class="edit btn btn-success btn-sm editProduct" title="Módosítás"><i class="fa fa-paint-brush"></i></a>';
-                $btn = $btn.'<a href="' . route('destroys', ['Contracttypes', $row["id"], 'contracttypes']) . '"
+                $btn = $btn.'<a href="' . route('beforeDestroys', ['Contracttypes', $row["id"], 'contracttypes']) . '"
                                  class="btn btn-danger btn-sm deleteProduct" title="Törlés"><i class="fa fa-trash"></i></a>';
                 return $btn;
             })

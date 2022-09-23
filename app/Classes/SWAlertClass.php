@@ -9,12 +9,11 @@ Class SWAlertClass {
     public static function choice($id, $title, $cancelPath, $cancelText, $confirmPath, $confirmText)
     {
         Alert::question( $title )
-            ->showCancelButton(
-                $btnText = '<a class="swCancelButton" href="'. URL::asset($cancelPath) .'">' . $cancelText .'</a>',
-                $btnColor = '#ff0000')
+            ->showCancelButton('<a href="'. URL::asset($cancelPath) .'" style="color:white;">' . $cancelText .'</a>',
+                'red')
             ->showConfirmButton(
-                $btnText = '<a class="swConfirmButton" href="'. URL::asset($confirmPath) .'">' . $confirmText .'</a>', // here is class for link
-                $btnColor = '#0066cc',
+                '<a href="'. URL::asset($confirmPath) .'" style="color:white;">' . $confirmText .'</a>', // here is class for link
+                'gray',
             )->autoClose(false);
     }
 

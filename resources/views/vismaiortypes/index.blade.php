@@ -13,7 +13,7 @@
             <div class="box-body">
                 <div class="col-lg-12 col-md-12 col-xs-12">
                     <section class="content-header">
-                        <h4>Ház típusok</h4>
+                        <h4>Vismaior típusok</h4>
                     </section>
                     @include('flash::message')
                     <div class="clearfix"></div>
@@ -46,9 +46,9 @@
                 scrollY: 390,
                 scrollX: true,
                 order: [[1, 'asc']],
-                ajax: "{{ route('housetypes.index') }}",
+                ajax: "{{ route('vismaiortypes.index') }}",
                 columns: [
-                    {title: '<a class="btn btn-primary" title="Felvitel" href="{!! route('housetypes.create') !!}"><i class="fa fa-plus-square"></i></a>',
+                    {title: '<a class="btn btn-primary" title="Felvitel" href="{!! route('vismaiortypes.create') !!}"><i class="fa fa-plus-square"></i></a>',
                         data: 'action', sClass: "text-center", width: '200px', name: 'action', orderable: false, searchable: false},
                     {title: 'Név', data: 'name', name: 'name'},
                 ]

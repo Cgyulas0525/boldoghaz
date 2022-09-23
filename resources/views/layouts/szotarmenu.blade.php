@@ -10,6 +10,9 @@
                                    Request::is('financialinstitutions*') ||
                                    Request::is('contracttypes*') ||
                                    Request::is('housetypes*') ||
+                                   Request::is('retentiontypes*') ||
+                                   Request::is('annextypes*') ||
+                                   Request::is('vismaiortypes*') ||
                                    Request::is('*Classifications*') ? 'active' : '' }}">
         <i class="fas fa-copy"></i>
         <p>
@@ -83,6 +86,27 @@
                     <p>Energetikai besorolás</p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('retentiontypes.index') }}"
+                   class="nav-link {{ Request::is('retentiontypes*') ? 'active' : '' }}">
+                    <i class="fas fa-unlink"></i>
+                    <p>Visszatartás típus</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('annextypes.index') }}"
+                   class="nav-link {{ Request::is('annextypes*') ? 'active' : '' }}">
+                    <i class="fas fa-paperclip"></i>
+                    <p>Melléklet típus</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('vismaiortypes.index') }}"
+                   class="nav-link {{ Request::is('vismaiortypes*') ? 'active' : '' }}">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>Vismaior típus</p>
+                </a>
+            </li>
         @endcan
         <li class="nav-item">
             <a href="{{ route('quantities.index') }}"
@@ -137,3 +161,4 @@
         @endcannot
     </ul>
 </li>
+

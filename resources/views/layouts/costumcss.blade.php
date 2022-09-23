@@ -12,7 +12,7 @@
         width: 100px;
         height: 86px;
         text-align: center;
-        color: white;
+        color: white !important;
         font-weight: bold;
         font-size:20px;
         font-family: 'Palatino, URW Palladio L, serif'
@@ -25,11 +25,11 @@
         width: 100px;
         height: 86px;
         text-align: center;
-        color: white;
+        color:
+        color: white !important;
         font-weight: bold;
         font-size:20px;
         font-family: 'Palatino, URW Palladio L, serif'
-
     }
 
     .hide-col {
