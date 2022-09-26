@@ -28,3 +28,5 @@
 @include('layouts.szotarmenu')
 @include('layouts.crmmenu')
 @include('layouts.projectmenu')
+
+

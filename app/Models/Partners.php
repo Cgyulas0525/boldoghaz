@@ -92,5 +92,12 @@ class Partners extends Model
         return $this->hasMany(\App\Models\Partnerspartnertypes::class, 'partner_id');
     }
 
+    public function contractCustomer() {
+        return $this->hasMany('App\Models\Contract', 'customer');
+    }
+
+    public function entrepeneurCustomer() {
+        return $this->hasMany('App\Models\Contract', 'entrepeneur');
+    }
 
 }

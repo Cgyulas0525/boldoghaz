@@ -31,8 +31,8 @@ class AddressController extends AppBaseController
         return Datatables::of($data)
             ->addIndexColumn()
             ->addColumn('fullAddress', function($data) { return $data->fullAddress; })
-            ->addColumn('typeName', function($data) { return $data->typeName; })
             ->addColumn('parentName', function($data) { return $data->parentName; })
+            ->addColumn('typeName', function($data) { return $data->addresstypes->name; })
             ->addColumn('action', function($row){
                 $btn = '<a href="' . route('addresses.edit', [$row->id]) . '"
                              class="edit btn btn-success btn-sm editProduct" title="Módosítás"><i class="fa fa-paint-brush"></i></a>';

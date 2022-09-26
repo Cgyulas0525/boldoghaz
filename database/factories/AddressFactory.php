@@ -24,7 +24,7 @@ class AddressFactory extends Factory
         return [
             'table_id' => $this->faker->randomDigitNotNull,
         'parent_id' => $this->faker->randomDigitNotNull,
-        'addresstype_id' => $this->faker->randomDigitNotNull,
+        'addresstypes_id' => $this->faker->randomDigitNotNull,
         'postcode' => $this->faker->randomDigitNotNull,
         'settlement' => $this->faker->word,
         'address' => $this->faker->word,

@@ -40,7 +40,7 @@ class Address extends Model
     public $fillable = [
         'table_id',
         'parent_id',
-        'addresstype_id',
+        'addresstypes_id',
         'postcode',
         'settlement',
         'address',
@@ -56,7 +56,7 @@ class Address extends Model
         'id' => 'integer',
         'table_id' => 'integer',
         'parent_id' => 'integer',
-        'addresstype_id' => 'integer',
+        'addresstypes_id' => 'integer',
         'postcode' => 'integer',
         'settlement' => 'string',
         'address' => 'string',
@@ -71,7 +71,7 @@ class Address extends Model
     public static $rules = [
         'table_id' => 'nullable|integer',
         'parent_id' => 'nullable|integer',
-        'addresstype_id' => 'nullable|integer',
+        'addresstypes_id' => 'nullable|integer',
         'postcode' => 'nullable|integer',
         'settlement' => 'nullable|string|max:100',
         'address' => 'nullable|string|max:250',
@@ -92,12 +92,20 @@ class Address extends Model
     }
 
     public function getTypeNameAttribute() {
-        return !empty($this->addresstype_id) ? Addresstypes::find($this->addresstype_id)->name : '';
+        return !empty($this->addresstypes_id) ? Addresstypes::find($this->addresstypes_id)->name : '';
     }
 
     public function getParentNameAttribute() {
-        $table = Tables::find($this->table_id)->name;
-        return DB::table($table)->find($this->parent_id)->name;
+        return DB::table($this->tables->name)->find($this->parent_id)->name;
+    }
+
+    public function addresstypes() {
+        return $this->belongsTo('App\Models\Addresstypes');
+    }
+
+    public function tables()
+    {
+        return $this->belongsTo(\App\Models\Tables::class, 'table_id');
     }
 
 }

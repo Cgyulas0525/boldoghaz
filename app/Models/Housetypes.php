@@ -21,7 +21,7 @@ class Housetypes extends Model
     use HasFactory;
 
     public $table = 'housetypes';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -59,5 +59,9 @@ class Housetypes extends Model
         'deleted_at' => 'nullable'
     ];
 
-    
+    public function contract() {
+        return $this->hasMany('App\Models\Contract');
+    }
+
+
 }

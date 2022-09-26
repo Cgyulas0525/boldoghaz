@@ -30,7 +30,7 @@ class PhonenumbersController extends AppBaseController
     {
         return Datatables::of($data)
             ->addIndexColumn()
-            ->addColumn('typeName', function($data) { return $data->typeName; })
+            ->addColumn('typeName', function($data) { return $data->phonenumbertypes->name; })
             ->addColumn('parentName', function($data) { return $data->parentName; })
             ->addColumn('action', function($row){
                 $btn = '<a href="' . route('phonenumbers.edit', [$row->id]) . '"

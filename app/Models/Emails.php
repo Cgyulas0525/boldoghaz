@@ -74,8 +74,12 @@ class Emails extends Model
     ];
 
     public function getParentNameAttribute() {
-        $table = Tables::find($this->table_id)->name;
-        return DB::table($table)->find($this->parent_id)->name;
+        return DB::table($this->tables->name)->find($this->parent_id)->name;
+    }
+
+    public function tables()
+    {
+        return $this->belongsTo(\App\Models\Tables::class, 'table_id');
     }
 
 }

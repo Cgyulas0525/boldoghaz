@@ -21,7 +21,7 @@ class Tables extends Model
     use HasFactory;
 
     public $table = 'tables';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -59,5 +59,12 @@ class Tables extends Model
         'deleted_at' => 'nullable'
     ];
 
-    
+    public function phones(){
+        return $this->hasMany('App\Models\Phonenumbers', 'table_id');
+    }
+
+    public function address(){
+        return $this->hasMany('App\Models\Address', 'table_id');
+    }
+
 }

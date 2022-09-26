@@ -38,9 +38,9 @@
 <div class="form-group col-lg-12">
     <div class="row">
         <div class="form-group col-lg-6">
-            {!! Form::label('addresstype_id', 'Típus:') !!}
-            {!! Form::select('addresstype_id', App\Http\Controllers\AddresstypesController::DDDW(), null,
-                     ['class'=>'select2 form-control', 'id' => 'addresstype_id']) !!}
+            {!! Form::label('addresstypes_id', 'Típus:') !!}
+            {!! Form::select('addresstypes_id', App\Http\Controllers\AddresstypesController::DDDW(), null,
+                     ['class'=>'select2 form-control', 'id' => 'addresstypes_id']) !!}
         </div>
 
         <!-- Commit Field -->
@@ -52,42 +52,6 @@
 </div>
 
 @section('scripts')
-    @include('functions.ajax_js')
-
-    <script type="text/javascript">
-        $(function () {
-
-            ajaxSetup();
-
-            $('#postcode').change(function() {
-                let postalCode = $('#postcode').val();
-                $.ajax({
-                    type:"GET",
-                    url:"{{url('postalcodeSettlementsDDDW')}}",
-                    data: { postalcode: postalCode },
-                    success:function(res){
-                        if(res){
-                            $("#settlement").empty();
-                            console.log(res[0].settlement);
-                            if (res.length == 1) {
-                                $("#settlement").append('<option value="'+(res[0].settlement)+'">'+(res[0].settlement)+'</option>');
-                            } else {
-                                $.each(res,function(key,value){
-                                    $("#settlement").append('<option></option>');
-                                    $("#settlement").append('<option value="'+value.id+'">'+value.id+'</option>');
-                                });
-                            }
-                        }else{
-                            $("#settlement").empty();
-                        }
-                    }
-                });
-
-            });
-
-
-
-        });
-    </script>
+    @include('addresses.address_js')
 @endsection
 
