@@ -20,6 +20,8 @@ use DB;
  * @property string $settlement
  * @property string $address
  * @property string $commit
+ * @property integer $prime
+ * @property integer $active
  */
 class Address extends Model
 {
@@ -44,7 +46,9 @@ class Address extends Model
         'postcode',
         'settlement',
         'address',
-        'commit'
+        'commit',
+        'prime',
+        'active'
     ];
 
     /**
@@ -60,7 +64,9 @@ class Address extends Model
         'postcode' => 'integer',
         'settlement' => 'string',
         'address' => 'string',
-        'commit' => 'string'
+        'commit' => 'string',
+        'prime' => 'integer',
+        'active' => 'integer'
     ];
 
     /**
@@ -76,6 +82,8 @@ class Address extends Model
         'settlement' => 'nullable|string|max:100',
         'address' => 'nullable|string|max:250',
         'commit' => 'nullable|string|max:500',
+        'prime' => 'required|integer',
+        'active' => 'required|integer',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'
@@ -84,7 +92,9 @@ class Address extends Model
     protected $append = [
         'fullAddress',
         'typeName',
-        'parentName'
+        'parentName',
+        'primeValue',
+        'activeValue'
     ];
 
     public function getFullAddressAttribute() {
@@ -106,6 +116,14 @@ class Address extends Model
     public function tables()
     {
         return $this->belongsTo(\App\Models\Tables::class, 'table_id');
+    }
+
+    public function getPrimeValueAttribute() {
+        return $this->prime == 0 ? 'Nem' : 'Igen';
+    }
+
+    public function getActiveValueAttribute() {
+        return $this->active == 0 ? 'Nem' : 'Igen';
     }
 
 }

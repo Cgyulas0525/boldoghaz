@@ -77,16 +77,22 @@ class PartnerdatasheetController extends Controller
             if ($request->ajax()) {
 
                 $this->tableId = utilityClass::getTableId('partners');
-                $data = Address::where('table_id', $this->tableId)->where('parent_id', $id)->get();
+                $data = Address::where('table_id', $this->tableId)
+                               ->where('parent_id', $id)
+                               ->get();
                 return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('fullAddress', function($data) { return $data->fullAddress; })
                     ->addColumn('typeName', function($data) { return $data->typeName; })
+                    ->addColumn('primeValue', function($data) { return $data->primeValue; })
+                    ->addColumn('activeValue', function($data) { return $data->activeValue; })
                     ->addColumn('action', function($row){
                         $btn = '<a href="' . route('addresses.edit', [$row->id]) . '"
                              class="edit btn btn-success btn-sm editProduct" title="Módosítás"><i class="fa fa-paint-brush"></i></a>';
-                        $btn = $btn.'<a href="' . route('addresses.destroy', [$row->id]) . '"
-                             class="btn btn-danger btn-sm deleteProduct" title="Törlés"><i class="fa fa-trash"></i></a>';
+                        if ($row->prime != 1) {
+                            $btn = $btn.'<a href="' . route('addresses.destroy', [$row->id]) . '"
+                                 class="btn btn-danger btn-sm deleteProduct" title="Törlés"><i class="fa fa-trash"></i></a>';
+                        }
                         return $btn;
                     })
                     ->rawColumns(['action'])
@@ -119,6 +125,8 @@ class PartnerdatasheetController extends Controller
                     ->addIndexColumn()
                     ->addColumn('institutName', function($data) { return $data->institutName; })
                     ->addColumn('partnerName', function($data) { return $data->partnerName; })
+                    ->addColumn('primeValue', function($data) { return $data->primeValue; })
+                    ->addColumn('activeValue', function($data) { return $data->activeValue; })
                     ->addColumn('action', function($row){
                         $btn = '<a href="' . route('partnerbankaccounts.edit', [$row->id]) . '"
                              class="edit btn btn-success btn-sm editProduct" title="Módosítás"><i class="fa fa-paint-brush"></i></a>';
@@ -155,6 +163,8 @@ class PartnerdatasheetController extends Controller
                 return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('typeName', function($data) { return $data->typeName; })
+                    ->addColumn('primeValue', function($data) { return $data->primeValue; })
+                    ->addColumn('activeValue', function($data) { return $data->activeValue; })
                     ->addColumn('action', function($row){
                         $btn = '<a href="' . route('phonenumbers.edit', [$row->id]) . '"
                              class="edit btn btn-success btn-sm editProduct" title="Módosítás"><i class="fa fa-paint-brush"></i></a>';
@@ -189,6 +199,8 @@ class PartnerdatasheetController extends Controller
                 $data = Emails::where('table_id', $this->tableId)->where('parent_id', $id)->get();
                 return Datatables::of($data)
                     ->addIndexColumn()
+                    ->addColumn('primeValue', function($data) { return $data->primeValue; })
+                    ->addColumn('activeValue', function($data) { return $data->activeValue; })
                     ->addColumn('action', function($row){
                         $btn = '<a href="' . route('emails.edit', [$row->id]) . '"
                              class="edit btn btn-success btn-sm editProduct" title="Módosítás"><i class="fa fa-paint-brush"></i></a>';

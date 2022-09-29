@@ -87,6 +87,18 @@ class PartnerbankaccountsController extends AppBaseController
         return view('partnerbankaccounts.create')->with('parentId', $parentId);
     }
 
+    public function primeUpdate($partnerbankaccounts) {
+        if ($partnerbankaccounts->prime == 1) {
+            $datas = Partnerbankaccounts::where('id', '!=', $partnerbankaccounts->id)
+                ->where('partners_id', $partnerbankaccounts->partners_id)
+                ->get();
+            foreach ($datas as $data) {
+                $data->prime = 0;
+                $data->save();
+            }
+        }
+    }
+
     /**
      * Store a newly created Partnerbankaccounts in storage.
      *
@@ -99,6 +111,8 @@ class PartnerbankaccountsController extends AppBaseController
         $input = $request->all();
 
         $partnerbankaccounts = $this->partnerbankaccountsRepository->create($input);
+        $this->primeUpdate($partnerbankaccounts);
+
         $partners = Partners::find($partnerbankaccounts->partners_id);
 
         return view('partners.edit')->with('partners', $partners);
@@ -157,6 +171,8 @@ class PartnerbankaccountsController extends AppBaseController
         }
 
         $partnerbankaccounts = $this->partnerbankaccountsRepository->update($request->all(), $id);
+        $this->primeUpdate($partnerbankaccounts);
+
         $partners = Partners::find($partnerbankaccounts->partners_id);
 
         return view('partners.edit')->with('partners', $partners);

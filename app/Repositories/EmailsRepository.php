@@ -20,7 +20,9 @@ class EmailsRepository extends BaseRepository
         'table_id',
         'parent_id',
         'email',
-        'commit'
+        'commit',
+        'prime',
+        'active'
     ];
 
     /**

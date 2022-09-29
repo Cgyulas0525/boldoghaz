@@ -28,7 +28,7 @@
             <div class="card-footer">
                 {!! Form::submit('Ment', ['class' => 'btn btn-primary saveButton']) !!}
                 <a href="{{ route('partners.index') }}" class="btn btn-default">Kilép</a>
-                <a href="{{ route('changePartnerLive', $partners->id) }}" class="btn btn-danger"> Élő </a>
+                <a href="{{ route('changePartnerLive', $partners->id) }}" class="btn btn-danger"> Aktív </a>
             </div>
 
            {!! Form::close() !!}

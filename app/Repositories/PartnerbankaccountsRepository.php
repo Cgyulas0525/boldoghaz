@@ -20,7 +20,9 @@ class PartnerbankaccountsRepository extends BaseRepository
         'partners_id',
         'financialinstitutions_id',
         'accountnumber',
-        'commit'
+        'commit',
+        'prime',
+        'active'
     ];
 
     /**

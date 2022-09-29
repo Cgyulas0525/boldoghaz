@@ -20,6 +20,9 @@ use DB;
  * @property integer $phonenumbertypes_id
  * @property string $phonenumber
  * @property string $commit
+ * @property integer $prime
+ * @property integer $active
+
  */
 class Phonenumbers extends Model
 {
@@ -42,7 +45,9 @@ class Phonenumbers extends Model
         'parent_id',
         'phonenumbertypes_id',
         'phonenumber',
-        'commit'
+        'commit',
+        'prime',
+        'active'
     ];
 
     /**
@@ -56,7 +61,9 @@ class Phonenumbers extends Model
         'parent_id' => 'integer',
         'phonenumbertypes_id' => 'integer',
         'phonenumber' => 'string',
-        'commit' => 'string'
+        'commit' => 'string',
+        'prime' => 'integer',
+        'active' => 'integer'
     ];
 
     /**
@@ -70,6 +77,8 @@ class Phonenumbers extends Model
         'phonenumbertypes_id' => 'nullable|integer',
         'phonenumber' => 'nullable|string|max:100',
         'commit' => 'nullable|string|max:500',
+        'prime' => 'required|integer',
+        'active' => 'required|integer',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'
@@ -93,7 +102,9 @@ class Phonenumbers extends Model
 
     protected $append = [
         'typeName',
-        'parentName'
+        'parentName',
+        'primeValue',
+        'activeValue'
     ];
 
     public function getTypeNameAttribute() {
@@ -104,5 +115,12 @@ class Phonenumbers extends Model
         return DB::table($this->tables->name)->find($this->parent_id)->name;
     }
 
+    public function getPrimeValueAttribute() {
+        return $this->prime == 0 ? 'Nem' : 'Igen';
+    }
+
+    public function getActiveValueAttribute() {
+        return $this->active == 0 ? 'Nem' : 'Igen';
+    }
 
 }

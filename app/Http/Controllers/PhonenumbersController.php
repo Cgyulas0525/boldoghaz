@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\PrimeChangeController;
+
 use App\Http\Requests\CreatePhonenumbersRequest;
 use App\Http\Requests\UpdatePhonenumbersRequest;
 use App\Repositories\PhonenumbersRepository;
@@ -99,6 +101,10 @@ class PhonenumbersController extends AppBaseController
         $input = $request->all();
 
         $phonenumbers = $this->phonenumbersRepository->create($input);
+        if ($phonenumbers->prime == 1) {
+            PrimeChangeController::primeChange('Phonenumbers', $phonenumbers);
+        }
+
 
         return redirect(route('partners.edit', $phonenumbers->parent_id));
     }
@@ -156,6 +162,9 @@ class PhonenumbersController extends AppBaseController
         }
 
         $phonenumbers = $this->phonenumbersRepository->update($request->all(), $id);
+        if ($phonenumbers->prime == 1) {
+            PrimeChangeController::primeChange('Phonenumbers', $phonenumbers);
+        }
 
         return redirect(route('partners.edit', $phonenumbers->parent_id));
     }

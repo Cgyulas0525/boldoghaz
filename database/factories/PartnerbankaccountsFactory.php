@@ -23,12 +23,14 @@ class PartnerbankaccountsFactory extends Factory
     {
         return [
             'partners_id' => $this->faker->randomDigitNotNull,
-        'financialinstitutions_id' => $this->faker->randomDigitNotNull,
-        'accountnumber' => $this->faker->word,
-        'commit' => $this->faker->word,
-        'created_at' => $this->faker->date('Y-m-d H:i:s'),
-        'updated_at' => $this->faker->date('Y-m-d H:i:s'),
-        'deleted_at' => $this->faker->date('Y-m-d H:i:s')
+            'financialinstitutions_id' => $this->faker->randomDigitNotNull,
+            'accountnumber' => $this->faker->word,
+            'commit' => $this->faker->word,
+            'prime' => $this->faker->randomDigitNotNull,
+            'active' => $this->faker->randomDigitNotNull,
+            'created_at' => $this->faker->date('Y-m-d H:i:s'),
+            'updated_at' => $this->faker->date('Y-m-d H:i:s'),
+            'deleted_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

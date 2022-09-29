@@ -53,7 +53,7 @@
                     {title: 'Név', data: 'name', name: 'name'},
                     {title: 'Adószám', data: 'taxnumber', name: 'taxnumber'},
                     {title: 'Cégjegyzékszám', data: 'registrationnumber', name: 'registrationnumber'},
-                    {title: 'Élő', data: 'liveName', name: 'liveName'},
+                    {title: 'Aktív', data: 'liveName', name: 'liveName'},
                 ]
             });
 

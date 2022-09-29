@@ -17,6 +17,8 @@ use DB;
  * @property integer $parent_id
  * @property string $email
  * @property string $commit
+ * @property integer $prime
+ * @property integer $active
  */
 class Emails extends Model
 {
@@ -38,7 +40,9 @@ class Emails extends Model
         'table_id',
         'parent_id',
         'email',
-        'commit'
+        'commit',
+        'prime',
+        'active'
     ];
 
     /**
@@ -51,7 +55,9 @@ class Emails extends Model
         'table_id' => 'integer',
         'parent_id' => 'integer',
         'email' => 'string',
-        'commit' => 'string'
+        'commit' => 'string',
+        'prime' => 'integer',
+        'active' => 'integer'
     ];
 
     /**
@@ -64,13 +70,17 @@ class Emails extends Model
         'parent_id' => 'nullable|integer',
         'email' => 'nullable|string|max:100',
         'commit' => 'nullable|string|max:500',
+        'prime' => 'required|integer',
+        'active' => 'required|integer',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'
     ];
 
     protected $append = [
-        'parentName'
+        'parentName',
+        'primeValue',
+        'activeValue'
     ];
 
     public function getParentNameAttribute() {
@@ -80,6 +90,14 @@ class Emails extends Model
     public function tables()
     {
         return $this->belongsTo(\App\Models\Tables::class, 'table_id');
+    }
+
+    public function getPrimeValueAttribute() {
+        return $this->prime == 0 ? 'Nem' : 'Igen';
+    }
+
+    public function getActiveValueAttribute() {
+        return $this->active == 0 ? 'Nem' : 'Igen';
     }
 
 }

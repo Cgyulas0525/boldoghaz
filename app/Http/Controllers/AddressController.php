@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\PrimeChangeController;
 use App\Http\Requests\CreateAddressRequest;
 use App\Http\Requests\UpdateAddressRequest;
 use App\Repositories\AddressRepository;
@@ -15,6 +16,7 @@ use Response;
 use Auth;
 use DB;
 use DataTables;
+
 
 class AddressController extends AppBaseController
 {
@@ -99,6 +101,9 @@ class AddressController extends AppBaseController
         $input = $request->all();
 
         $address = $this->addressRepository->create($input);
+        if ($address->prime == 1) {
+            PrimeChangeController::primeChange('Address', $address);
+        }
 
         return redirect(route('partners.edit', $address->parent_id));
     }
@@ -156,6 +161,9 @@ class AddressController extends AppBaseController
         }
 
         $address = $this->addressRepository->update($request->all(), $id);
+        if ($address->prime == 1) {
+            PrimeChangeController::primeChange('Address', $address);
+        }
 
         return redirect(route('partners.edit', $address->parent_id));
     }

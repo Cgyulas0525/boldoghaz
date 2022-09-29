@@ -23,7 +23,9 @@ class AddressRepository extends BaseRepository
         'postcode',
         'settlement',
         'address',
-        'commit'
+        'commit',
+        'prime',
+        'active'
     ];
 
     /**

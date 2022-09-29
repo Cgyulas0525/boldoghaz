@@ -23,13 +23,15 @@ class PhonenumbersFactory extends Factory
     {
         return [
             'table_id' => $this->faker->randomDigitNotNull,
-        'parent_id' => $this->faker->randomDigitNotNull,
-        'phonenumbertypes_id' => $this->faker->randomDigitNotNull,
-        'phonenumber' => $this->faker->word,
-        'commit' => $this->faker->word,
-        'created_at' => $this->faker->date('Y-m-d H:i:s'),
-        'updated_at' => $this->faker->date('Y-m-d H:i:s'),
-        'deleted_at' => $this->faker->date('Y-m-d H:i:s')
+            'parent_id' => $this->faker->randomDigitNotNull,
+            'phonenumbertypes_id' => $this->faker->randomDigitNotNull,
+            'phonenumber' => $this->faker->word,
+            'commit' => $this->faker->word,
+            'prime' => $this->faker->randomDigitNotNull,
+            'active' => $this->faker->randomDigitNotNull,
+            'created_at' => $this->faker->date('Y-m-d H:i:s'),
+            'updated_at' => $this->faker->date('Y-m-d H:i:s'),
+            'deleted_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

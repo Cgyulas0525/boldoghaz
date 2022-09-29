@@ -97,6 +97,9 @@ class EmailsController extends AppBaseController
         $input = $request->all();
 
         $emails = $this->emailsRepository->create($input);
+        if ($emails->prime == 1) {
+            PrimeChangeController::primeChange('Emails', $emails);
+        }
 
         return redirect(route('partners.edit', $emails->parent_id));
     }
@@ -154,6 +157,9 @@ class EmailsController extends AppBaseController
         }
 
         $emails = $this->emailsRepository->update($request->all(), $id);
+        if ($emails->prime == 1) {
+            PrimeChangeController::primeChange('Emails', $emails);
+        }
 
         return redirect(route('partners.edit', $emails->parent_id));
     }

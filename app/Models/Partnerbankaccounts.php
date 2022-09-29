@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property integer $financialinstitutions_id
  * @property string $accountnumber
  * @property string $commit
+ * @property integer $prime
+ * @property integer $active
  */
 class Partnerbankaccounts extends Model
 {
@@ -36,7 +38,9 @@ class Partnerbankaccounts extends Model
         'partners_id',
         'financialinstitutions_id',
         'accountnumber',
-        'commit'
+        'commit',
+        'prime',
+        'active'
     ];
 
     /**
@@ -49,7 +53,9 @@ class Partnerbankaccounts extends Model
         'partners_id' => 'integer',
         'financialinstitutions_id' => 'integer',
         'accountnumber' => 'string',
-        'commit' => 'string'
+        'commit' => 'string',
+        'prime' => 'integer',
+        'active' => 'integer'
     ];
 
     /**
@@ -62,6 +68,8 @@ class Partnerbankaccounts extends Model
         'financialinstitutions_id' => 'required|integer',
         'accountnumber' => 'required|string|max:30',
         'commit' => 'nullable|string|max:500',
+        'prime' => 'required|integer',
+        'active' => 'required|integer',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'
@@ -85,7 +93,9 @@ class Partnerbankaccounts extends Model
 
     protected $append = [
         'partnerName',
-        'institutName'
+        'institutName',
+        'primeValue',
+        'activeValue'
     ];
 
     public function getPartnerNameAttribute() {
@@ -94,6 +104,14 @@ class Partnerbankaccounts extends Model
 
     public function getInstitutNameAttribute() {
         return !empty($this->financialinstitutions_id) ? Financialinstitutions::find($this->financialinstitutions_id)->name : '';
+    }
+
+    public function getPrimeValueAttribute() {
+        return $this->prime == 0 ? 'Nem' : 'Igen';
+    }
+
+    public function getActiveValueAttribute() {
+        return $this->active == 0 ? 'Nem' : 'Igen';
     }
 
 }

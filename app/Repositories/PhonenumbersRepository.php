@@ -21,7 +21,9 @@ class PhonenumbersRepository extends BaseRepository
         'parent_id',
         'phonenumbertypes_id',
         'phonenumber',
-        'commit'
+        'commit',
+        'prime',
+        'active'
     ];
 
     /**

@@ -5,6 +5,9 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Http\Controllers\PrimeChangeController;
+
+use App\Models\Partnerbankaccounts;
 
 /**
  * Class Partners
@@ -72,12 +75,39 @@ class Partners extends Model
     ];
 
     protected $append = [
-        'liveName'
+        'liveName',
+        'primeAddress',
+        'primeEmail',
+        'primePhoneNumber',
+        'primeBankAccount'
     ];
 
     public function getLiveNameAttribute() {
         return $this->live == 0 ? "Nem" : ($this->live == 1 ? "Igen" : "Nincs érték");
     }
+
+    public function getPrimeAddressAttribute() {
+        $data = PrimeChangeController::getPrime('Address', $this->id);
+        return !empty($data) ? $data->fullAddress : 'Nincs elsődleges cím!';
+    }
+
+    public function getPrimeEmailAttribute() {
+        $data = PrimeChangeController::getPrime('Emails', $this->id);
+        return !empty($data) ? $data->phonenumber : 'Nincs elsődleges email cím!';
+    }
+
+    public function getPrimePhoneNumberAttribute() {
+        $data = PrimeChangeController::getPrime('Phonenumber', $this->id);
+        return !empty($data) ? $data->email : 'Nincs elsődleges telefonszám!';
+    }
+
+    public function getPrimeBankAccountAttribute() {
+        $data = Partnerbankaccounts::where('partners_id', $this->id)
+                                   ->where('prime', 1)
+                                   ->first();
+        return !empty($data) ? $data->accountnumber : 'Nincs elsődleges bankszámla!';
+    }
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
