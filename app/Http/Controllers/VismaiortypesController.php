@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Utility\utilityClass;
 use App\Http\Requests\CreateVismaiortypesRequest;
 use App\Http\Requests\UpdateVismaiortypesRequest;
 use App\Repositories\VismaiortypesRepository;
@@ -31,11 +32,13 @@ class VismaiortypesController extends AppBaseController
         return Datatables::of($data)
             ->addIndexColumn()
             ->addColumn('action', function($row){
-                $btn = '<a href="' . route('vismaiortypes.edit', [$row->id]) . '"
-                             class="edit btn btn-success btn-sm editProduct" title="Módosítás"><i class="fa fa-paint-brush"></i></a>';
-                $btn = $btn.'<a href="' . route('beforeDestroys', ['Vismaiortypes', $row["id"], 'vismaiortypes']) . '"
-                                 class="btn btn-danger btn-sm deleteProduct" title="Törlés"><i class="fa fa-trash"></i></a>';
-                return $btn;
+                if (!utilityClass::protectedRecord('vismaiortypes', $row->id)) {
+                    $btn = '<a href="' . route('vismaiortypes.edit', [$row->id]) . '"
+                                 class="edit btn btn-success btn-sm editProduct" title="Módosítás"><i class="fa fa-paint-brush"></i></a>';
+                    $btn = $btn . '<a href="' . route('beforeDestroys', ['Vismaiortypes', $row["id"], 'vismaiortypes']) . '"
+                                     class="btn btn-danger btn-sm deleteProduct" title="Törlés"><i class="fa fa-trash"></i></a>';
+                    return $btn;
+                }
             })
             ->rawColumns(['action'])
             ->make(true);

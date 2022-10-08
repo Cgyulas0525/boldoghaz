@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>{{ App\Classes\Utility\utilityClass::getPartnerName($emails->parent_id) }} {{ $emails->email }}</h1>
+                    <h1>{{ utilityClass::getPartnerName($emails->parent_id) }} {{ $emails->email }}</h1>
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-default float-right"

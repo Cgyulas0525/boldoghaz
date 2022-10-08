@@ -22,11 +22,22 @@
                 <p>Táblák</p>
             </a>
         </li>
+{{--        <li class="nav-item">--}}
+{{--            <a href="{{ route('menus.index') }}"--}}
+{{--               class="nav-link {{ Request::is('menus*') ? 'active' : '' }}">--}}
+{{--                <i class="fas fa-bars"></i>--}}
+{{--                <p>Menus</p>--}}
+{{--            </a>--}}
+{{--        </li>--}}
     @endcan
 @endcannot
 
 @include('layouts.szotarmenu')
 @include('layouts.crmmenu')
 @include('layouts.projectmenu')
+
+
+
+
 
 

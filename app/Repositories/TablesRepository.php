@@ -18,6 +18,7 @@ class TablesRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'name',
+        'protectedrecords',
         'commit'
     ];
 

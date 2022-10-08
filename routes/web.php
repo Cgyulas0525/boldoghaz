@@ -59,7 +59,9 @@ Route::resource('eqeqitems', App\Http\Controllers\EqeqitemsController::class);
 Route::get('indexEQ/{id}', [EqeqitemsController::class, 'indexEQ'])->name('indexEQ');
 Route::resource('additionalelements', App\Http\Controllers\AdditionalelementsController::class);
 Route::get('index/{id}', [PartnertypeChildController::class, 'index'])->name('ptChildIndex');
-Route::get('create/{id}', [PartnertypeChildController::class, 'create'])->name('ptChildCreate');
+
+Route::get('createChild/{id}', [PartnertypeChildController::class, 'createChild'])->name('ptChildCreate');
+
 Route::post('store', [PartnertypeChildController::class, 'store'])->name('ptChildStore');
 Route::resource('settlements', App\Http\Controllers\SettlementsController::class);
 Route::resource('partners', App\Http\Controllers\PartnersController::class);
@@ -88,20 +90,16 @@ Route::get('create/{id}', [PartnerspartnertypesController::class, 'create'])->na
 Route::get('pbaCreate/{id}', [PartnerbankaccountsController::class, 'pbaCreate'])->name('pbaCreate');
 
 Route::resource('financialinstitutions', App\Http\Controllers\FinancialinstitutionsController::class);
-
 Route::resource('partnerbankaccounts', App\Http\Controllers\PartnerbankaccountsController::class);
-
 Route::resource('contracttypes', App\Http\Controllers\ContracttypesController::class);
-
 Route::resource('housetypes', App\Http\Controllers\HousetypesController::class);
-
 Route::get('destroy/{table}/{id}/{route}', [DestroysController::class, 'destroy'])->name('destroys');
 Route::get('beforeDestroys/{table}/{id}/{route}', [DestroysController::class, 'beforeDestroys'])->name('beforeDestroys');
-
 Route::resource('retentiontypes', App\Http\Controllers\RetentiontypesController::class);
-
 Route::resource('annextypes', App\Http\Controllers\AnnextypesController::class);
-
 Route::resource('vismaiortypes', App\Http\Controllers\VismaiortypesController::class);
-
 Route::resource('contracts', App\Http\Controllers\ContractController::class);
+Route::resource('menus', App\Http\Controllers\MenuController::class);
+Route::resource('contractcontenttypes', App\Http\Controllers\ContractcontenttypesController::class);
+Route::resource('contractnoncontenttypes', App\Http\Controllers\ContractnoncontenttypesController::class);
+Route::resource('contractcustomerprovidetypes', App\Http\Controllers\ContractcustomerprovidetypesController::class);

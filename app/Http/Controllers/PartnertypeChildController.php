@@ -65,7 +65,7 @@ class PartnertypeChildController extends Controller
      *
      * @return Response
      */
-    public function create($id)
+    public function createChild($id)
     {
         $partnertypes = $this->partnertypesRepository->find($id);
 

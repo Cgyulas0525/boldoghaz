@@ -1,6 +1,5 @@
 <li class="nav-item">
     <a href="#" class="nav-link {{ Request::is('*statuses*') ||
-                                   Request::is('*types*') ||
                                    Request::is('ecitems*') ||
                                    Request::is('eqitems*') ||
                                    Request::is('quantities*') ||
@@ -8,6 +7,11 @@
                                    Request::is('additionalelements*') ||
                                    Request::is('settlements*') ||
                                    Request::is('financialinstitutions*') ||
+                                   Request::is('partnertypes*') ||
+                                   Request::is('addresstypes*') ||
+                                   Request::is('phonenumbertypes*') ||
+                                   Request::is('equipmenttypes*') ||
+                                   Request::is('heatingtypes*') ||
                                    Request::is('contracttypes*') ||
                                    Request::is('housetypes*') ||
                                    Request::is('retentiontypes*') ||
@@ -21,6 +25,9 @@
             <span class="badge badge-info right"></span>
         </p>
     </a>
+    <?php
+        $icon = 'fas fa-hands';
+    ?>
     <ul class="nav nav-treeview">
         @can('fejlesztő')
             <li class="nav-item">

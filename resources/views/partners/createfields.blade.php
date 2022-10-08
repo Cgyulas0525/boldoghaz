@@ -6,7 +6,7 @@
 
 <div class="col-lg-2">
     {!! Form::label('live', 'Élő:') !!}
-    {!! Form::select('live', App\Classes\Utility\utilityClass::igenNemDDDW(), null,
+    {!! Form::select('live', utilityClass::yesNoDDDW(), null,
              ['class'=>'select2 form-control', 'id' => 'live']) !!}
 </div>
 

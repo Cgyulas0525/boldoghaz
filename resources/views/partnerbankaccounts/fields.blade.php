@@ -17,14 +17,14 @@
     <div class="row">
         <div class="col-lg-6">
             {!! Form::label('active', 'Aktív:') !!}
-            {!! Form::select('active', App\Classes\Utility\utilityClass::igenNemDDDW(), null,
+            {!! Form::select('active', utilityClass::yesNoDDDW(), null,
                      ['class'=>'select2 form-control', 'id' => 'active']) !!}
             {!! Form::text('active_text', isset($partnerbankaccounts) ? $partnerbankaccounts->activeValue : null,
                 ['class' => 'form-control','maxlength' => 250, 'id' => 'active_text', 'readonly' => 'true']) !!}
         </div>
         <div class="form-group col-lg-6">
             {!! Form::label('prime', 'Elsődleges:') !!}
-            {!! Form::select('prime', App\Classes\Utility\utilityClass::igenNemDDDW(), null,
+            {!! Form::select('prime', utilityClass::yesNoDDDW(), null,
                      ['class'=>'select2 form-control', 'id' => 'prime']) !!}
             {!! Form::text('prime_text', isset($partnerbankaccounts) ? $partnerbankaccounts->primeValue : null,
                 ['class' => 'form-control','maxlength' => 250, 'id' => 'prime_text', 'readonly' => 'true']) !!}

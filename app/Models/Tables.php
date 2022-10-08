@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @version June 27, 2022, 6:58 am UTC
  *
  * @property string $name
+ * @property integer $protactedrecords
  * @property string $commit
  */
 class Tables extends Model
@@ -32,6 +33,7 @@ class Tables extends Model
 
     public $fillable = [
         'name',
+        'protectedrecords',
         'commit'
     ];
 
@@ -43,6 +45,7 @@ class Tables extends Model
     protected $casts = [
         'id' => 'integer',
         'name' => 'string',
+        'protectedrecords' => 'integer',
         'commit' => 'string'
     ];
 
@@ -53,6 +56,7 @@ class Tables extends Model
      */
     public static $rules = [
         'name' => 'required|string|max:100',
+        'protectedrecords' => 'required|integer',
         'commit' => 'required|string|max:500',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',

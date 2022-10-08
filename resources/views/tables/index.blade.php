@@ -52,6 +52,7 @@
                     {title: '<a class="btn btn-primary" title="Felvitel" href="{!! route('tables.create') !!}"><i class="fa fa-plus-square"></i></a>',
                         data: 'action', sClass: "text-center", width: '200px', name: 'action', orderable: false, searchable: false},
                     {title: 'Név', data: 'name', name: 'name'},
+                    {title: 'Védett rekord', data: 'protectedrecords', render: $.fn.dataTable.render.number( '.', ',', 0), sClass: "text-right", width:'150px', name: 'protectedrecords'},
                     {title: 'Megjegyzés', data: 'commit', name: 'commit'},
                 ]
             });

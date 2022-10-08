@@ -21,7 +21,7 @@
 <div class="col-lg-2">
     {!! Form::label('live', 'Aktív:') !!}
     {!! Form::hidden('live', $partners->live, ['class' => 'form-control','id' => 'live']) !!}
-    {!! Form::text('livetxt', App\Classes\Utility\utilityClass::igenNem($partners->live), ['class' => 'form-control','maxlength' => 25,'id' => 'livetxt', 'readonly' => 'true']) !!}
+    {!! Form::text('livetxt', utilityClass::yesNo($partners->live), ['class' => 'form-control','maxlength' => 25,'id' => 'livetxt', 'readonly' => 'true']) !!}
 </div>
 
 <!-- Commit Field -->

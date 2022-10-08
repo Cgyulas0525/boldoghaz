@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>{{ App\Classes\Utility\utilityClass::getPartnerName($address->parent_id) }} {{ $address->fullAddress }} {{ $address->typeName }}</h1>
+                    <h1>{{ utilityClass::getPartnerName($address->parent_id) }} {{ $address->fullAddress }} {{ $address->typeName }}</h1>
                 </div>
             </div>
         </div>

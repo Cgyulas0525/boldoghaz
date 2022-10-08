@@ -45,6 +45,7 @@
                 serverSide: true,
                 scrollY: 390,
                 scrollX: true,
+                paging: false,
                 order: [[1, 'asc']],
                 ajax: "{{ route('vismaiortypes.index') }}",
                 columns: [

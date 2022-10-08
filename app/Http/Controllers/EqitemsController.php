@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Utility\utilityClass;
 use App\Http\Requests\CreateEqitemsRequest;
 use App\Http\Requests\UpdateEqitemsRequest;
 use App\Repositories\EqitemsRepository;
@@ -31,11 +32,13 @@ class EqitemsController extends AppBaseController
         return Datatables::of($data)
             ->addIndexColumn()
             ->addColumn('action', function($row){
-                $btn = '<a href="' . route('eqitems.edit', [$row->id]) . '"
-                             class="edit btn btn-success btn-sm editProduct" title="Módosítás"><i class="fa fa-paint-brush"></i></a>';
-                $btn = $btn.'<a href="' . route('beforeDestroys', ['Eqitems', $row["id"], 'eqitems']) . '"
-                                 class="btn btn-danger btn-sm deleteProduct" title="Törlés"><i class="fa fa-trash"></i></a>';
-                return $btn;
+                if (!utilityClass::protectedRecord('eqitems', $row->id)) {
+                    $btn = '<a href="' . route('eqitems.edit', [$row->id]) . '"
+                                 class="edit btn btn-success btn-sm editProduct" title="Módosítás"><i class="fa fa-paint-brush"></i></a>';
+                    $btn = $btn . '<a href="' . route('beforeDestroys', ['Eqitems', $row["id"], 'eqitems']) . '"
+                                     class="btn btn-danger btn-sm deleteProduct" title="Törlés"><i class="fa fa-trash"></i></a>';
+                    return $btn;
+                }
             })
             ->rawColumns(['action'])
             ->make(true);

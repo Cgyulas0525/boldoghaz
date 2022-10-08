@@ -19,7 +19,7 @@ use Auth;
 use DB;
 use DataTables;
 
-use App\Classes\Utility\utilityClass;
+use utilityClass;
 
 class PartnerdatasheetController extends Controller
 {
