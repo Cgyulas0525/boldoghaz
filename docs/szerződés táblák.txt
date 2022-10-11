@@ -61,19 +61,12 @@ nettom2			netto m2
 bruttom2		brutto m2
 amount			összeg
 deadline                határidő
+contractsubject         szerződés tárgya
 commit                  megjegyzés
 created_at
 updated_at
 deleted_at
 
-3 contractsubject:        szerződés tárgya
-
-id
-contract_id
-commit                  megjegyzés
-created_at
-updated_at
-deleted_at
 
 4 contractcontent         szerződés tartalma
 
