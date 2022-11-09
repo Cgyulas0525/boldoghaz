@@ -200,7 +200,7 @@ class PartnersController extends AppBaseController
      */
     public static function DDDW() : array
     {
-        return [" "] + partners::where('live', 1)->orderBy('name')->pluck('name', 'id')->toArray();
+        return [" "] + Partners::where('live', 1)->orderBy('name')->pluck('name', 'id')->toArray();
     }
 
 }

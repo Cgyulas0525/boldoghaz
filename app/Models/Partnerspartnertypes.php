@@ -85,4 +85,8 @@ class Partnerspartnertypes extends Model
         return !empty($this->partnertypes_id) ? Partnertypes::find($this->partnertypes_id)->name : '';
     }
 
+//    public function partnertypes()
+//    {
+//        return $this->belongsTo(Partnertypes::class);
+//    }
 }

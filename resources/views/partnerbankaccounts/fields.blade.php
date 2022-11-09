@@ -17,7 +17,7 @@
     <div class="row">
         <div class="col-lg-6">
             {!! Form::label('active', 'Aktív:') !!}
-            {!! Form::select('active', utilityClass::yesNoDDDW(), null,
+            {!! Form::select('active', utilityClass::yesNoDDDW(), isset($partnerbankaccounts) ? $partnerbankaccounts->activeValue : 1,
                      ['class'=>'select2 form-control', 'id' => 'active']) !!}
             {!! Form::text('active_text', isset($partnerbankaccounts) ? $partnerbankaccounts->activeValue : null,
                 ['class' => 'form-control','maxlength' => 250, 'id' => 'active_text', 'readonly' => 'true']) !!}

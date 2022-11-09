@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateEcitemsRequest;
 use App\Http\Requests\UpdateEcitemsRequest;
-use App\Models\Ecitems;
 use App\Repositories\EcitemsRepository;
 use App\Http\Controllers\AppBaseController;
+
+use App\Models\Ecitems;
+
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -31,8 +33,8 @@ class EcitemsController extends AppBaseController
             ->addColumn('action', function($row){
                 $btn = '<a href="' . route('ecitems.edit', [$row->id]) . '"
                              class="edit btn btn-success btn-sm editProduct" title="Módosítás"><i class="fa fa-paint-brush"></i></a>';
-                $btn = $btn.'<a href="' . route('beforeDestroys', ['Ecitems', $row["id"], 'ecitems']) . '"
-                                     class="btn btn-danger btn-sm deleteProduct" title="Törlés"><i class="fa fa-trash"></i></a>';
+                $btn = $btn.'<a href="' . route('ecitems.destroy', [$row->id]) . '"
+                             class="btn btn-danger btn-sm deleteProduct" title="Törlés"><i class="fa fa-trash"></i></a>';
                 return $btn;
             })
             ->rawColumns(['action'])
@@ -172,30 +174,10 @@ class EcitemsController extends AppBaseController
          *
          * return array
          */
-        public static function DDDW($id = 0) : array
+        public static function DDDW() : array
         {
-            if ($id == 0) {
-                return [" "] + Ecitems::orderBy('name')->pluck('name', 'id')->toArray();
-            }
-            if ($id != 0) {
-                return [" "] + Ecitems::whereNotIn('id', function($query) use($id) {
-                    $query->from('ececitems')->select('ecitems_id')->where('energyclassifications_id', $id)->get();
-                })->orderBy('name')->pluck('name', 'id')->toArray();
-            }
-            return [" "];
+            return [" "] + ecitems::orderBy('name')->pluck('name', 'id')->toArray();
         }
-
-//        /*
-//         * Dropdown for field select records not in ececitems table
-//         *
-//         * @param $id energyclassifications_id
-//         *
-//         * return array
-//         */
-//        public function DDDW($id) : array
-//        {
-//            return [" "] + Ecitems::orderBy('name')->pluck('name', 'id')->toArray();
-//        }
 }
 
 

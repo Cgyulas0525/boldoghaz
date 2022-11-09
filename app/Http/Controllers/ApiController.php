@@ -6,7 +6,10 @@ use App\Models\Ecitems;
 use App\Models\Partners;
 use Illuminate\Http\Request;
 use Response;
+use DB;
 use App\Classes\ptClass;
+
+use App\Models\Contractcontenttypes;
 
 class ApiController extends Controller
 {
@@ -19,7 +22,7 @@ class ApiController extends Controller
 
     public function partnerTypes(Request $request) {
         $ptc = new ptClass();
-        return Response::json($ptc->selectData());
+        return Response::json($ptc->selectData('Partnertypes'));
     }
 
     public function changePartnerLive(Request $request) {
@@ -28,5 +31,10 @@ class ApiController extends Controller
         $partner->save();
         return redirect(route('partners.index'));
     }
-}
 
+    public function contractTypesNotIn(Request $request) {
+        return DB::table($request->table.'types')->whereNotIn('id', function ($query) use($request) {
+            return $query->from($request->table)->select($request->table.'types_id')->where('contract_id', $request->id)->whereNull('deleted_at')->get();
+        })->get()->count();
+    }
+}

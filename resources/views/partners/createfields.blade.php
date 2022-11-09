@@ -5,8 +5,8 @@
 </div>
 
 <div class="col-lg-2">
-    {!! Form::label('live', 'Élő:') !!}
-    {!! Form::select('live', utilityClass::yesNoDDDW(), null,
+    {!! Form::label('live', 'Aktív:') !!}
+    {!! Form::select('live', utilityClass::yesNoDDDW(), 1,
              ['class'=>'select2 form-control', 'id' => 'live']) !!}
 </div>
 

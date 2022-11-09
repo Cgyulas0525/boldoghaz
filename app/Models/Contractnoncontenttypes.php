@@ -72,4 +72,9 @@ class Contractnoncontenttypes extends Model
         return $this->types >= 0 ? utilityClass::witchContract($this->types) : '';
     }
 
+    public function contractnoncontent() {
+        return $this->hasMany(Contractnoncontent::class);
+    }
+
+
 }

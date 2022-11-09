@@ -43,6 +43,29 @@ created_at
 updated_at
 deleted_at
 
+
+9 penaltytypes           kötbér típus
+
+id
+name
+businessrates           vállalkozási díj %
+daypenalty              kötbér napi %
+daypanaltymax           kötbér % max
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+11 constructionphase       kivitelezési fázisok
+
+id
+parent_id               szülő
+name
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
 ----------------------------------------
 
 2 contract:
@@ -67,11 +90,13 @@ created_at
 updated_at
 deleted_at
 
+--------------------------------------------------
 
 4 contractcontent         szerződés tartalma
 
 id
 contract_id
+contractcontenttypes_id
 commit                  megjegyzés
 created_at
 updated_at
@@ -81,6 +106,7 @@ deleted_at
 
 id
 contract_id
+contractnoncontenttypes_id
 commit                  megjegyzés
 created_at
 updated_at
@@ -90,10 +116,36 @@ deleted_at
 
 id
 contract_id
+contractcustomerprovidetypes_id
 commit                  megjegyzés
 created_at
 updated_at
 deleted_at
+
+15 contractannex           szerződés melléklet
+
+id
+contract_id
+annextypes_id           melléklet típus
+document                dokumentum
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+17 contractvismaior           szerződés vismaior
+
+id
+contract_id
+vismaiortypes_id        vis major típus
+document                dokumentum
+date                    dátum
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+
 
 7 contractpayment         fizetési részletek
 
@@ -119,22 +171,12 @@ created_at
 updated_at
 deleted_at
 
-9 penaltytypes           kötbér típus
-
-id
-name
-businessrates           vállalkozási díj %
-daypenalty              kötbér napi %
-daypanaltymax           kötbér % max
-commit                  megjegyzés
-created_at
-updated_at
-deleted_at
 
 10 contractpenalty        kötbér
 
 id
 contract_id
+penaltytypes_id
 constructionphase_id    kivitelezési fázis
 deadline                határidő
 performance             teljesítés
@@ -144,15 +186,6 @@ updated_at
 deleted_at
 
 
-11 constructionphase       kivitelezési fázisok
-
-id
-name
-parent_id               szülő
-commit                  megjegyzés
-created_at
-updated_at
-deleted_at
 
 13 contractretention       szerződés visszatartások
 
@@ -167,28 +200,7 @@ created_at
 updated_at
 deleted_at
 
-15 contractannex           szerződés melléklet
 
-id
-contract_id
-annextypes_id           melléklet típus
-document                dokumentum
-commit                  megjegyzés
-created_at
-updated_at
-deleted_at
-
-17 contractannex           szerződés melléklet
-
-id
-contract_id
-vismaiortypes_id        vis major típus
-document                dokumentum
-date                    dátum
-commit                  megjegyzés
-created_at
-updated_at
-deleted_at
 
 18 contractcontract        alvállakozói szerződések
 

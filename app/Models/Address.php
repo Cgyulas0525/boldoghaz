@@ -110,12 +110,12 @@ class Address extends Model
     }
 
     public function addresstypes() {
-        return $this->belongsTo('App\Models\Addresstypes');
+        return $this->belongsTo(Addresstypes::class);
     }
 
     public function tables()
     {
-        return $this->belongsTo(\App\Models\Tables::class, 'table_id');
+        return $this->belongsTo(Tables::class, 'table_id');
     }
 
     public function getPrimeValueAttribute() {

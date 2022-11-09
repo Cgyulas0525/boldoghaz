@@ -5,6 +5,15 @@
         padding-left: 4em;
     }
 
+    .adminDBButton {
+        border: 1px solid gray;
+        box-shadow: 0px 8px 15px rgba(0,0,0,0.1);
+        font-size: 15px;
+        margin-left: 20px !important;
+        height: 3em;
+        width: 100%;
+    }
+
     .swCancelButton {
         background-repeat: no-repeat;
         background-size: 98px 84px;
@@ -12,7 +21,7 @@
         width: 100px;
         height: 86px;
         text-align: center;
-        color: white !important;
+        color: white;
         font-weight: bold;
         font-size:20px;
         font-family: 'Palatino, URW Palladio L, serif'
@@ -25,11 +34,11 @@
         width: 100px;
         height: 86px;
         text-align: center;
-        color:
-        color: white !important;
+        color: white;
         font-weight: bold;
         font-size:20px;
         font-family: 'Palatino, URW Palladio L, serif'
+
     }
 
     .hide-col {
@@ -117,6 +126,10 @@
 
     .nav-link {
         color: #FFFFFF !important;
+    }
+
+    .nav-link.active {
+        background-color: #2b89e7 !important;
     }
 
     .navbar {

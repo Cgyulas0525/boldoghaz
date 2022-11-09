@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class EcitemsRepository
  * @package App\Repositories
- * @version August 18, 2022, 9:13 am UTC
+ * @version November 5, 2022, 7:54 am UTC
 */
 
 class EcitemsRepository extends BaseRepository

@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class Ecitems
  * @package App\Models
- * @version August 18, 2022, 9:13 am UTC
+ * @version November 5, 2022, 7:54 am UTC
  *
+ * @property \Illuminate\Database\Eloquent\Collection $ececitems
  * @property string $name
  * @property string $commit
  */
@@ -21,7 +22,7 @@ class Ecitems extends Model
     use HasFactory;
 
     public $table = 'ecitems';
-
+    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -64,8 +65,6 @@ class Ecitems extends Model
      **/
     public function ececitems()
     {
-        return $this->hasMany(\App\Models\Ececitems::class, 'ecitems_id');
+        return $this->hasMany(\App\Models\Ececitem::class, 'ecitems_id');
     }
-
-
 }

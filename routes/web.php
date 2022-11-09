@@ -14,8 +14,9 @@ use App\Http\Controllers\AddressController;
 use App\Http\Controllers\PhonenumbersController;
 use App\Http\Controllers\EmailsController;
 use App\Http\Controllers\PartnerbankaccountsController;
-use App\Http\Controllers\ContracttypesController;
 use App\Http\Controllers\DestroysController;
+use App\Http\Controllers\ConstructionphaseController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -58,11 +59,11 @@ Route::resource('eqitems', App\Http\Controllers\EqitemsController::class);
 Route::resource('eqeqitems', App\Http\Controllers\EqeqitemsController::class);
 Route::get('indexEQ/{id}', [EqeqitemsController::class, 'indexEQ'])->name('indexEQ');
 Route::resource('additionalelements', App\Http\Controllers\AdditionalelementsController::class);
+
 Route::get('index/{id}', [PartnertypeChildController::class, 'index'])->name('ptChildIndex');
-
 Route::get('createChild/{id}', [PartnertypeChildController::class, 'createChild'])->name('ptChildCreate');
-
 Route::post('store', [PartnertypeChildController::class, 'store'])->name('ptChildStore');
+
 Route::resource('settlements', App\Http\Controllers\SettlementsController::class);
 Route::resource('partners', App\Http\Controllers\PartnersController::class);
 Route::resource('addresses', App\Http\Controllers\AddressController::class);
@@ -93,8 +94,13 @@ Route::resource('financialinstitutions', App\Http\Controllers\Financialinstituti
 Route::resource('partnerbankaccounts', App\Http\Controllers\PartnerbankaccountsController::class);
 Route::resource('contracttypes', App\Http\Controllers\ContracttypesController::class);
 Route::resource('housetypes', App\Http\Controllers\HousetypesController::class);
+
 Route::get('destroy/{table}/{id}/{route}', [DestroysController::class, 'destroy'])->name('destroys');
+Route::get('destroyWithParam/{table}/{id}/{route}/{param}', [DestroysController::class, 'destroyWithParam'])->name('destroyWithParam');
+
 Route::get('beforeDestroys/{table}/{id}/{route}', [DestroysController::class, 'beforeDestroys'])->name('beforeDestroys');
+Route::get('beforeDestroysWithParam/{table}/{id}/{route}/{param}', [DestroysController::class, 'beforeDestroysWithParam'])->name('beforeDestroysWithParam');
+
 Route::resource('retentiontypes', App\Http\Controllers\RetentiontypesController::class);
 Route::resource('annextypes', App\Http\Controllers\AnnextypesController::class);
 Route::resource('vismaiortypes', App\Http\Controllers\VismaiortypesController::class);
@@ -103,3 +109,19 @@ Route::resource('menus', App\Http\Controllers\MenuController::class);
 Route::resource('contractcontenttypes', App\Http\Controllers\ContractcontenttypesController::class);
 Route::resource('contractnoncontenttypes', App\Http\Controllers\ContractnoncontenttypesController::class);
 Route::resource('contractcustomerprovidetypes', App\Http\Controllers\ContractcustomerprovidetypesController::class);
+
+Route::resource('penaltytypes', App\Http\Controllers\PenaltytypesController::class);
+
+Route::resource('constructionphases', App\Http\Controllers\ConstructionphaseController::class);
+
+Route::get('ptindex/{id}', [PartnertypeChildController::class, 'ptindex'])->name('ptChildIndex');
+Route::get('ptcreateChild/{id}', [PartnertypeChildController::class, 'ptcreateChild'])->name('ptChildCreate');
+Route::post('ptstore', [PartnertypeChildController::class, 'ptstore'])->name('ptChildStore');
+
+Route::get('childIndex/{id}', [ConstructionphaseController::class, 'childIndex'])->name('cpChildIndex');
+Route::get('createChild/{id}', [ConstructionphaseController::class, 'createChild'])->name('cpChildCreate');
+Route::post('childStore', [ConstructionphaseController::class, 'childStore'])->name('cpChildStore');
+
+Route::resource('contractcontents', App\Http\Controllers\ContractcontentController::class);
+
+Route::resource('contractnoncontents', App\Http\Controllers\ContractnoncontentController::class);

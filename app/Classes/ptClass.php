@@ -17,25 +17,36 @@ class ptClass
         return $fullName;
     }
 
-    public function childs($id) {
-        $datas = Partnertypes::where('parent_id', $id)->orderBy('id')->get();
+    public function childs($table, $id) {
+        $model_name = 'App\Models\\'.$table;
+        $datas = $model_name::where('parent_id', $id)->orderBy('id')->get();
         foreach ($datas as $data) {
-            $childCount = Partnertypes::where('parent_id', $data->id)->get()->count();
-            $name = $this->fullName($data->parent_id, $data->name);
-            $arrayItem = ["id" => $data->id, "name" => $name, "commit" => $data->commit, "parent_id" => $data->parent_id, "childCount" => $childCount];
+            $name = $this->recordFullName($table, $data->parent_id, $data->name);
+            $arrayItem = ["id" => $data->id, "name" => $name, "commit" => $data->commit, "parent_id" => $data->parent_id, "childCount" => $data->childs()->count()];
             array_push($this->array, $arrayItem);
-            $this->childs($data->id);
+            $this->childs($table, $data->id);
         }
     }
 
-    public function selectData() {
-        $datas = Partnertypes::whereNull('parent_id')->orderBy('id')->get();
+    public function selectData($table) {
+        $model_name = 'App\Models\\'.$table;
+        $datas = $model_name::whereNull('parent_id')->orderBy('id')->get();
         foreach ($datas as $data) {
-            $childCount = Partnertypes::where('parent_id', $data->id)->get()->count();
-            $arrayItem = ["id" => $data->id, "name" => $data->name, "commit" => $data->commit, "parent_id" => $data->parent_id, "childCount" => $childCount];
+            $arrayItem = ["id" => $data->id, "name" => $data->name, "commit" => $data->commit, "parent_id" => $data->parent_id, "childCount" => $data->childs()->count()];
             array_push($this->array, $arrayItem);
-            $this->childs($data->id);
+            $this->childs($table, $data->id);
         }
         return $this->array;
     }
+
+    public function recordFullName($table, $id, $name) {
+        $model_name = 'App\Models\\'.$table;
+        $item = $model_name::find($id);
+        $fullName = $item->name . " - " . $name;
+        if (!is_null($item->parent_id)) {
+            $fullName = $this->recordFullName($table, $item->parent_id, $fullName);
+        }
+        return $fullName;
+    }
+
 }

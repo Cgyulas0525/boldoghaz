@@ -49,7 +49,7 @@ class PartnertypeChildController extends Controller
      *
      * @return Response
      */
-    public function index(Request $request, $id)
+    public function ptindex(Request $request, $id)
     {
         if( Auth::check() ){
             if ($request->ajax()) {
@@ -65,7 +65,7 @@ class PartnertypeChildController extends Controller
      *
      * @return Response
      */
-    public function createChild($id)
+    public function ptcreateChild($id)
     {
         $partnertypes = $this->partnertypesRepository->find($id);
 
@@ -79,7 +79,7 @@ class PartnertypeChildController extends Controller
      *
      * @return Response
      */
-    public function store(CreatePartnertypesRequest $request)
+    public function ptstore(CreatePartnertypesRequest $request)
     {
         $input = $request->all();
 

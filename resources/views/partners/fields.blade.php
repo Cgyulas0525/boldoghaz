@@ -44,7 +44,6 @@
         $('[data-widget="pushmenu"]').PushMenu('collapse');
 
         var table;
-        var table;
         var tableEmails;
         var tablePhones;
         var tableAddress;
