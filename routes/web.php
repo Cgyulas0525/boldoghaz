@@ -125,3 +125,6 @@ Route::post('childStore', [ConstructionphaseController::class, 'childStore'])->n
 Route::resource('contractcontents', App\Http\Controllers\ContractcontentController::class);
 
 Route::resource('contractnoncontents', App\Http\Controllers\ContractnoncontentController::class);
+
+
+Route::resource('contractcustomerprovides', App\Http\Controllers\ContractcustomerprovideController::class);

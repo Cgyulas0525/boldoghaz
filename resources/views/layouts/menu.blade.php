@@ -36,12 +36,3 @@
 @include('layouts.crmmenu')
 @include('layouts.projectmenu')
 
-
-<li class="nav-item">
-    <a href="{{ route('contractnoncontents.index') }}"
-       class="nav-link {{ Request::is('contractnoncontents*') ? 'active' : '' }}">
-        <p>Contractnoncontents</p>
-    </a>
-</li>
-
-

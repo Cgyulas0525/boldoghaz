@@ -112,6 +112,8 @@ created_at
 updated_at
 deleted_at
 
+--------------------------------------- 2022.11.12
+
 6 contractcustomerprovide megrendelő biztosítja
 
 id
@@ -121,6 +123,8 @@ commit                  megjegyzés
 created_at
 updated_at
 deleted_at
+
+
 
 15 contractannex           szerződés melléklet
 

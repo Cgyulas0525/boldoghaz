@@ -71,8 +71,8 @@ class ContractcontentController extends AppBaseController
         }
     }
 
-    public function contractContentAllButton($id) {
-        $this->contractChild->allRecords('contractcontent', $id);
+    public function contractContentAllButton($id, $model) {
+        $this->contractChild->allRecords($model, $id);
         return back();
     }
 

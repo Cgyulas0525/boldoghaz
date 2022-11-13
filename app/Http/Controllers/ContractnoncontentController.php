@@ -39,8 +39,8 @@ class ContractnoncontentController extends AppBaseController
             ->addColumn('contractnoncontenttypes', function($data) { return $data->contractnoncontenttypes->name; })
             ->addColumn('action', function($row){
                 $btn = '';
-                $btn = $btn.'<a href="' . route('contractnoncontents.destroy', [$row->id]) . '"
-                             class="btn btn-danger btn-sm deleteProduct" title="Törlés"><i class="fa fa-trash"></i></a>';
+                $btn = $btn.'<a href="' . route('beforeDestroysWithParam', ['Contractnoncontent', $row->id, 'contractnoncontentIndex', $row->contract_id]) . '"
+                                 class="btn btn-danger btn-sm deleteProduct" title="Törlés"><i class="fa fa-trash"></i></a>';
                 return $btn;
             })
             ->rawColumns(['action'])
@@ -97,12 +97,6 @@ class ContractnoncontentController extends AppBaseController
             return view('contractnoncontents.index');
         }
     }
-
-    public function contractContentAllButton($id) {
-        $this->contractChild->allRecords('contractnoncontent', $id);
-        return back();
-    }
-
 
     /**
      * Show the form for creating a new Contractnoncontent.

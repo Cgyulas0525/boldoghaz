@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="card-footer" style="float: left;">
-                        <a href="{!! route('contractNonContentAllButton', $contract->id) !!}" class="btn btn-success" id="mindButton">Mind</a>
+                        <a href="#" class="btn btn-success" id="allButton">Mind</a>
                         <a href="{!! route('contracts.show', $contract->id) !!}" class="btn btn-default">Vissza</a>
                     </div>
                 </div>
@@ -37,6 +37,7 @@
 
 @section('scripts')
     @include('layouts.datatables_js')
+    @include('functions.contractChild.contractChild_js')
 
     <script type="text/javascript">
 
@@ -63,9 +64,9 @@
                         if (res > 0) {
                             console.log(res)
                             action = '<a class="btn btn-primary" title="Felvitel" href="{!! route('contractNonContentCreate', $contract->id) !!}"><i class="fa fa-plus-square"></i></a>';
-                            $("#mindButton").show();
+                            $("#allButton").show();
                         } else {
-                            $("#mindButton").hide();
+                            $("#allButton").hide();
                         }
                     }
                     table = $('.partners-table').DataTable({
@@ -96,6 +97,11 @@
             });
 
         });
+
+        $('#allButton').click(function (e) {
+            allButton('contractnoncontent');
+        });
+
     </script>
 @endsection
 

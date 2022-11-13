@@ -32,7 +32,7 @@
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "Törlés",
+                    confirmButtonText: "Törlés",0
                     cancelButtonText: "Kilép"
                 }).then((result) => {
                     console.log(result);
