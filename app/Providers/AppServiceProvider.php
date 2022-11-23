@@ -44,5 +44,6 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('fejlesztő', function() {
             return Auth::user()->userstatus_id == 3;
         });
+
     }
 }

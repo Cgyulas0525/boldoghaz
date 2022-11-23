@@ -126,5 +126,13 @@ Route::resource('contractcontents', App\Http\Controllers\ContractcontentControll
 
 Route::resource('contractnoncontents', App\Http\Controllers\ContractnoncontentController::class);
 
-
 Route::resource('contractcustomerprovides', App\Http\Controllers\ContractcustomerprovideController::class);
+
+Route::resource('contractannexes', App\Http\Controllers\ContractannexController::class);
+
+
+
+Route::resource('contractdeadlines', App\Http\Controllers\ContractdeadlineController::class);
+
+
+Route::resource('contractdeadlineitems', App\Http\Controllers\ContractdeadlineitemController::class);

@@ -99,7 +99,7 @@
         });
 
         $('#allButton').click(function (e) {
-            allButton('contractnoncontent');
+            allButton('contractnoncontent', contractId)
         });
 
     </script>

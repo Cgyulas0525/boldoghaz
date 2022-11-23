@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use App\Classes\SWAlertClass;
 
+use App\Models\Contractdeadlineitem;
+
 class DestroysController extends Controller
 {
 
@@ -41,12 +43,34 @@ class DestroysController extends Controller
         return redirect(route($route));
     }
 
+    public function deletingContractAnnex($data) {
+        if (!is_null($data->document_url)) {
+            unlink($data->document_url);
+        }
+    }
+
+    public function deletingContractDeadLine($data) {
+        Contractdeadlineitem::where('contractdeadline_id', $data->id)->delete();
+    }
+
+
     public function destroyWithParam($table, $id, $route, $param) {
         $model_name = 'App\Models\\'.$table;
         $data = $model_name::find($id);
 
         if (empty($data)) {
             return redirect(route($route, $param));
+        }
+
+        switch (strtolower($table)) {
+            case "contractannex":
+                $this->deletingContractAnnex($data);
+                break;
+            case "contractdeadline":
+                $this->deletingContractDeadLine($data);
+                break;
+            default:
+                echo "Your favorite color is neither red, blue, nor green!";
         }
 
         $data->delete();

@@ -20,7 +20,7 @@ class contractChild
                     ]);
             } else {
                 if (!is_null($ccData->deleted_at)) {
-                    DB::table($table)
+                    DB::table($table)->where('contract_id', $id)->where($table . 'types_id', $contractcontenttype->id)
                         ->update([
                             'deleted_at' => NULL
                         ]);

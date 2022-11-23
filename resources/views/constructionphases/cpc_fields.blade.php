@@ -16,7 +16,7 @@
         {!! Form::label('commit', 'Megjegyzés:') !!}
         {!! Form::textarea('commit', null, ['class' => 'form-control','maxlength' => 500,'maxlength' => 500, 'rows' => 4, 'id' => 'commit']) !!}
     </div>
-    @if (isset($partnertypes->id))
+    @if (isset($constructionphase->id))
         <!-- Parent Id Field -->
         <div class="form-group col-sm-12">
             {!! Form::hidden('parent_id', 'Parent Id:') !!}
@@ -25,7 +25,7 @@
     @else
         <div class="form-group col-sm-12">
             {!! Form::label('parent_id', 'Felettes:') !!}
-            {!! Form::select('parent_id', App\Http\Controllers\PartnertypesController::DDDW(), null,
+            {!! Form::select('parent_id', App\Http\Controllers\ConstructionphaseController::DDDW(), null,
                      ['class'=>'select2 form-control cellLabel', 'required' => 'true', 'id' => 'parent_id']) !!}
         </div>
     @endif

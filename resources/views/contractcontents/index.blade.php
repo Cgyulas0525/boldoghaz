@@ -69,7 +69,7 @@
                     }
                     table = $('.partners-table').DataTable({
                         serverSide: true,
-                        scrollY: 390,
+                        scrollY: 350,
                         scrollX: true,
                         order: [[1, 'asc']],
                         paging: false,
@@ -97,7 +97,7 @@
         });
 
         $('#allButton').click(function (e) {
-            allButton('contractcontent');
+            allButton('contractcontent', contractId)
         });
     </script>
 @endsection

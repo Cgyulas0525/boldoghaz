@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContractcontentController;
 use App\Http\Controllers\ContractnoncontentController;
 use App\Http\Controllers\ContractcustomerprovideController;
+use App\Http\Controllers\ContractannexController;
+use App\Http\Controllers\ContractdeadlineController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +26,12 @@ Route::get('contractContentCreate/{id}', [ContractcontentController::class, 'con
 
 Route::get('contractcustomerprovideIndex/{id}', [ContractcustomerprovideController::class, 'contractcustomerprovideIndex'])->name('contractcustomerprovideIndex');
 Route::get('contractCustomerProvideCreate/{id}', [ContractcustomerprovideController::class, 'contractCustomerProvideCreate'])->name('contractCustomerProvideCreate');
+
+Route::get('contractAnnexIndex/{id}', [ContractannexController::class, 'contractAnnexIndex'])->name('contractAnnexIndex');
+Route::get('contractAnnexCreate/{id}', [ContractannexController::class, 'contractAnnexCreate'])->name('contractAnnexCreate');
+Route::get('contractAnnexView/{id}', [ContractannexController::class, 'contractAnnexView'])->name('contractAnnexView');
+
+Route::get('contractDeadLineIndex/{id}', [ContractdeadlineController::class, 'contractDeadLineIndex'])->name('contractDeadLineIndex');
+Route::get('contractDeadLineCreate/{id}', [ContractdeadlineController::class, 'contractDeadLineCreate'])->name('contractDeadLineCreate');
 
 

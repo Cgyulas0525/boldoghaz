@@ -124,6 +124,7 @@ created_at
 updated_at
 deleted_at
 
+--------------------------------------- 2022.11.14
 
 
 15 contractannex           szerződés melléklet
@@ -131,25 +132,40 @@ deleted_at
 id
 contract_id
 annextypes_id           melléklet típus
-document                dokumentum
+document_name           dokumentum neve
+document_url            dokumentum cime
 commit                  megjegyzés
 created_at
 updated_at
 deleted_at
 
-17 contractvismaior           szerződés vismaior
+--------------------------------------- 2022.11.16
+
+8 contractdeadline        határidők
 
 id
 contract_id
-vismaiortypes_id        vis major típus
-document                dokumentum
-date                    dátum
+constructionphase_id    kivitelezési fázis
+deadline                határidő
+performance             teljesítés
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+ 19 contractdeadlineitem      határidő részhatáridők
+
+id
+contractdeadline_id
+deadline                határidő
+performance             teljesítés
 commit                  megjegyzés
 created_at
 updated_at
 deleted_at
 
 
+-----------------------------------------
 
 7 contractpayment         fizetési részletek
 
@@ -164,16 +180,24 @@ created_at
 updated_at
 deleted_at
 
-8 contractdeadline        határidők
+
+
+17 contractvismaior           szerződés vismaior
 
 id
 contract_id
-deadline                határidő
-performance             teljesítés
+vismaiortypes_id        vis major típus
+document_name                dokumentum
+document_url
+date                    dátum
 commit                  megjegyzés
 created_at
 updated_at
 deleted_at
+
+
+
+
 
 
 10 contractpenalty        kötbér
@@ -212,7 +236,8 @@ id
 contract_id
 partnercontract_id      partner szerződés
 constructionphase_id    kivitelezési fázis
-document                dokumentum
+document_name                dokumentum
+document_url
 date                    dátum
 deadline                 határidő
 settlementdate          teljesítési dátum

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Response;
 use DB;
 use App\Classes\ptClass;
+use App\Classes\Contract\contractChild;
 
 use App\Models\Contractcontenttypes;
 
@@ -36,5 +37,10 @@ class ApiController extends Controller
         return DB::table($request->table.'types')->whereNotIn('id', function ($query) use($request) {
             return $query->from($request->table)->select($request->table.'types_id')->where('contract_id', $request->id)->whereNull('deleted_at')->get();
         })->get()->count();
+    }
+
+    public function apiAllButton(Request $request) {
+        $cc = new contractChild();
+        $cc->allRecords($request->table, $request->id);
     }
 }

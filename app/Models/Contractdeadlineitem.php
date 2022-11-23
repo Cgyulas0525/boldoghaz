@@ -7,20 +7,22 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Class Annextypes
+ * Class Contractdeadlineitem
  * @package App\Models
- * @version September 23, 2022, 9:01 am UTC
+ * @version November 18, 2022, 8:48 am UTC
  *
- * @property string $name
+ * @property integer $contractdeadline_id
+ * @property string $deadline
+ * @property string $performance
  * @property string $commit
  */
-class Annextypes extends Model
+class Contractdeadlineitem extends Model
 {
     use SoftDeletes;
 
     use HasFactory;
 
-    public $table = 'annextypes';
+    public $table = 'contractdeadlineitem';
 
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -31,7 +33,9 @@ class Annextypes extends Model
 
 
     public $fillable = [
-        'name',
+        'contractdeadline_id',
+        'deadline',
+        'performance',
         'commit'
     ];
 
@@ -42,7 +46,9 @@ class Annextypes extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'name' => 'string',
+        'contractdeadline_id' => 'integer',
+        'deadline' => 'date',
+        'performance' => 'date',
         'commit' => 'string'
     ];
 
@@ -52,15 +58,17 @@ class Annextypes extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required|string|max:100',
+        'contractdeadline_id' => 'required|integer',
+        'deadline' => 'required',
+        'performance' => 'nullable',
         'commit' => 'nullable|string|max:500',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'
     ];
 
-    public function contractannex() {
-        return $this->hasMany(Contractannex::class);
+    public function contractdeadline() {
+        return $this->belongsTo(Contractdeadline::class);
     }
 
 }

@@ -88,6 +88,8 @@ class ConstructionphaseController extends AppBaseController
     {
         $input = $request->all();
 
+        $input['parent_id'] = intval($input['parent_id']) === 0 ? null : $input['parent_id'];
+
         $constructionphase = $this->constructionphaseRepository->create($input);
 
         return redirect(route('constructionphases.index'));
@@ -145,7 +147,10 @@ class ConstructionphaseController extends AppBaseController
             return redirect(route('constructionphases.index'));
         }
 
-        $constructionphase = $this->constructionphaseRepository->update($request->all(), $id);
+        $input = $request->all();
+        $input['parent_id'] = intval($input['parent_id']) === 0 ? null : $input['parent_id'];
+
+        $constructionphase = $this->constructionphaseRepository->update($input, $id);
 
         return redirect(route('constructionphases.index'));
     }
@@ -172,15 +177,27 @@ class ConstructionphaseController extends AppBaseController
         return redirect(route('constructionphases.index'));
     }
 
-        /*
-         * Dropdown for field select
-         *
-         * return array
-         */
-        public static function DDDW() : array
-        {
-            return [" "] + constructionphase::orderBy('name')->pluck('name', 'id')->toArray();
-        }
+    /*
+     * Dropdown for field select
+     *
+     * return array
+     */
+    public static function DDDW() : array
+    {
+        return [" "] + constructionphase::orderBy('name')->pluck('name', 'id')->toArray();
+    }
+
+    /*
+     * Dropdown for field select
+     *
+     * return array
+     */
+    public static function notInDDDW($id) : array
+    {
+        return [" "] + constructionphase::whereNotIn('id', function ($query) use($id) {
+            return $query->from('contractdeadline')->select('constructionphase_id')->where('contract_id', $id)->whereNull('deleted_at')->get();
+        })->orderBy('name')->pluck('name', 'id')->toArray();
+    }
 
 
     /**
