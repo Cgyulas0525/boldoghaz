@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>{{ $contractdeadline->name }}</h1>
+                    <h1>{{ $contractdeadline->contract->contractnumber }} számú szerződés {{ $contractdeadline->constructionphase->name }}</h1>
                 </div>
             </div>
         </div>

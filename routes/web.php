@@ -130,9 +130,10 @@ Route::resource('contractcustomerprovides', App\Http\Controllers\Contractcustome
 
 Route::resource('contractannexes', App\Http\Controllers\ContractannexController::class);
 
-
-
 Route::resource('contractdeadlines', App\Http\Controllers\ContractdeadlineController::class);
 
 
 Route::resource('contractdeadlineitems', App\Http\Controllers\ContractdeadlineitemController::class);
+
+
+Route::resource('contractpayments', App\Http\Controllers\ContractpaymentController::class);

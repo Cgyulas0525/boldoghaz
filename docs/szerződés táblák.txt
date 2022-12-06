@@ -165,29 +165,30 @@ updated_at
 deleted_at
 
 
------------------------------------------
+----------------------------------------- 2022.12.05
 
 7 contractpayment         fizetési részletek
 
 id
 contract_id
+amount                  összeg
 advance                 előleg
-date                    fizetés dátuma
 deadline                rész határidő
-performance             teljesítési feltétel
+paymentdate             fizetés dátuma
+condition               teljesítési feltétel
 commit                  megjegyzés
 created_at
 updated_at
 deleted_at
 
-
+-----------------------------------------
 
 17 contractvismaior           szerződés vismaior
 
 id
 contract_id
 vismaiortypes_id        vis major típus
-document_name                dokumentum
+document_name           dokumentum
 document_url
 date                    dátum
 commit                  megjegyzés

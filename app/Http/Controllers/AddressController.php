@@ -197,7 +197,7 @@ class AddressController extends AppBaseController
          */
         public static function DDDW() : array
         {
-            return [" "] + address::orderBy('name')->pluck('name', 'id')->toArray();
+            return [" "] + Address::orderBy('address')->pluck('address', 'id')->toArray();
         }
 }
 

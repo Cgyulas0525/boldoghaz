@@ -6,6 +6,7 @@ use App\Http\Controllers\ContractnoncontentController;
 use App\Http\Controllers\ContractcustomerprovideController;
 use App\Http\Controllers\ContractannexController;
 use App\Http\Controllers\ContractdeadlineController;
+use App\Http\Controllers\ContractdeadlineitemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +35,6 @@ Route::get('contractAnnexView/{id}', [ContractannexController::class, 'contractA
 Route::get('contractDeadLineIndex/{id}', [ContractdeadlineController::class, 'contractDeadLineIndex'])->name('contractDeadLineIndex');
 Route::get('contractDeadLineCreate/{id}', [ContractdeadlineController::class, 'contractDeadLineCreate'])->name('contractDeadLineCreate');
 
+Route::get('contractdeadlineitemIndex/{id}', [ContractdeadlineitemController::class, 'contractdeadlineitemIndex'])->name('contractdeadlineitemIndex');
+Route::get('contractDeadLineitemCreate/{id}', [ContractdeadlineitemController::class, 'contractDeadLineitemCreate'])->name('contractDeadLineitemCreate');
 

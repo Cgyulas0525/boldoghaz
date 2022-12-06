@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateContractdeadlineitemRequest;
 use App\Http\Requests\UpdateContractdeadlineitemRequest;
+use App\Models\Contract;
+use App\Models\Contractdeadline;
 use App\Repositories\ContractdeadlineitemRepository;
 use App\Http\Controllers\AppBaseController;
 
@@ -65,6 +67,31 @@ class ContractdeadlineitemController extends AppBaseController
     }
 
     /**
+     * Display a listing of the Contractdeadlineitem.
+     *
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function contractdeadlineitemIndex(Request $request, $id)
+    {
+        if( Auth::check() ){
+
+            if ($request->ajax()) {
+
+                $data = Contractdeadlineitem::where('contractdeadline_id', $id)->get();
+                return $this->dwData($data);
+
+            }
+
+            $contractdeadline = Contractdeadline::find($id);
+
+            return view('contractdeadlineitems.index')->with('contractdeadline', $contractdeadline);
+        }
+    }
+
+
+    /**
      * Show the form for creating a new Contractdeadlineitem.
      *
      * @return Response
@@ -72,6 +99,17 @@ class ContractdeadlineitemController extends AppBaseController
     public function create()
     {
         return view('contractdeadlineitems.create');
+    }
+
+    /**
+     * Show the form for creating a new Contractdeadlineitem.
+     *
+     * @return Response
+     */
+    public function contractDeadLineitemCreate($id)
+    {
+        $contractdeadline = Contractdeadline::find($id);
+        return view('contractdeadlineitems.create')->with('contractdeadline', $contractdeadline);
     }
 
     /**
@@ -87,7 +125,9 @@ class ContractdeadlineitemController extends AppBaseController
 
         $contractdeadlineitem = $this->contractdeadlineitemRepository->create($input);
 
-        return redirect(route('contractdeadlineitems.index'));
+        $contractdeadline = Contractdeadline::find($contractdeadlineitem->contractdeadline_id);
+
+        return view('contractdeadlineitems.index')->with('contractdeadline', $contractdeadline);
     }
 
     /**

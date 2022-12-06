@@ -25,7 +25,7 @@
                     <div class="text-center"></div>
                     <div class="col-lg-3">
                         <div class="card-footer" style="float: left;">
-                            <a href="{!! route('contracts.show', $contract->id) !!}" class="btn btn-default">Vissza</a>
+                            <a href="{!! route('contracts.show', $contract->id) !!}" class="btn btn-success">Szerződés</a>
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                         data: 'action', sClass: "text-center", width: '200px', name: 'action', orderable: false, searchable: false},
                     {title: 'Kivitelezési fázis', data: 'constructionphase', name: 'constructionphase'},
                     {title: 'Határidő', data: 'deadline', render: function (data, type, row) { return data ? moment(data).format('YYYY.MM.DD') : ''; }, sClass: "text-center", width:'150px', name: 'deadline'},
-                    {title: 'Teljsítés', data: 'performance', render: function (data, type, row) { return data ? moment(data).format('YYYY.MM.DD') : ''; }, sClass: "text-center", width:'150px', name: 'performance'},
+                    {title: 'Teljesítés', data: 'performance', render: function (data, type, row) { return data ? moment(data).format('YYYY.MM.DD') : ''; }, sClass: "text-center", width:'150px', name: 'performance'},
                 ],
                 buttons: [],
             });

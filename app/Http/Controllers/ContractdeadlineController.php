@@ -37,7 +37,7 @@ class ContractdeadlineController extends AppBaseController
                              class="edit btn btn-success btn-sm editProduct" title="Módosítás"><i class="fa fa-paint-brush"></i></a>';
                 $btn = $btn.'<a href="' . route('beforeDestroysWithParam', ['Contractdeadline', $row->id, 'contractDeadLineIndex', $row->contract_id]) . '"
                                  class="btn btn-danger btn-sm deleteProduct" title="Törlés"><i class="fa fa-trash"></i></a>';
-                $btn = $btn.'<a href="' . route('contractdeadlineitems.index') . '"
+                $btn = $btn.'<a href="' . route('contractdeadlineitemIndex', $row->id) . '"
                                   class="btn btn-warning btn-sm reszhataridok" title="Részhatáridők"><i class="fas fa-solar-panel"></i></a>';
                 return $btn;
             })

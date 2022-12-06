@@ -192,11 +192,17 @@ class ConstructionphaseController extends AppBaseController
      *
      * return array
      */
-    public static function notInDDDW($id) : array
+    public static function notInDDDW($id, $cfid = null) : array
     {
-        return [" "] + constructionphase::whereNotIn('id', function ($query) use($id) {
-            return $query->from('contractdeadline')->select('constructionphase_id')->where('contract_id', $id)->whereNull('deleted_at')->get();
-        })->orderBy('name')->pluck('name', 'id')->toArray();
+        if (is_null($cfid)) {
+            return [" "] + constructionphase::whereNotIn('id', function ($query) use ($id) {
+                    return $query->from('contractdeadline')->select('constructionphase_id')->where('contract_id', $id)->whereNull('deleted_at')->get();
+                })->orderBy('name')->pluck('name', 'id')->toArray();
+        } else {
+            return [" "] + constructionphase::whereNotIn('id', function ($query) use($id) {
+                    return $query->from('contractdeadline')->select('constructionphase_id')->where('contract_id', $id)->whereNull('deleted_at')->get();
+                })->orWhere('id', $cfid)->orderBy('name')->pluck('name', 'id')->toArray();
+        }
     }
 
 

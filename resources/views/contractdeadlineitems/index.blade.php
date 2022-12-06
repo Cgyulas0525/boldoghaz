@@ -13,7 +13,7 @@
             <div class="box-body">
                 <div class="col-lg-12 col-md-12 col-xs-12">
                     <section class="content-header">
-                        <h4>Contractdeadlineitem</h4>
+                        <h4>{{ $contractdeadline->contract->contractnumber }} számú szerződés {{ $contractdeadline->constructionphase->name }} rész határidei</h4>
                     </section>
                     @include('flash::message')
                     <div class="clearfix"></div>
@@ -23,6 +23,13 @@
                         </div>
                     </div>
                     <div class="text-center"></div>
+                    <div class="col-lg-3">
+                        <div class="card-footer" style="float: left;">
+                            <a href="{!! route('contractDeadLineIndex', $contractdeadline->contract->id) !!}" class="btn btn-success">Kivitelezési fázisok</a>
+                            <a href="{!! route('contracts.show', $contractdeadline->contract->id) !!}" class="btn btn-success">Szerződés</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -46,12 +53,15 @@
                 scrollY: 390,
                 scrollX: true,
                 order: [[1, 'asc']],
-                ajax: "{{ route('contractdeadlineitems.index') }}",
+                paging: false,
+                ajax: "{{ route('contractdeadlineitemIndex', $contractdeadline->id) }}",
                 columns: [
-                    {title: '<a class="btn btn-primary" title="Felvitel" href="{!! route('contractdeadlineitems.create') !!}"><i class="fa fa-plus-square"></i></a>',
+                    {title: '<a class="btn btn-primary" title="Felvitel" href="{!! route('contractDeadLineitemCreate', $contractdeadline->id) !!}"><i class="fa fa-plus-square"></i></a>',
                         data: 'action', sClass: "text-center", width: '200px', name: 'action', orderable: false, searchable: false},
-                    {title: 'Név', data: 'name', name: 'name'},
-                ]
+                    {title: 'Határidő', data: 'deadline', render: function (data, type, row) { return data ? moment(data).format('YYYY.MM.DD') : ''; }, sClass: "text-center", width:'150px', name: 'deadline'},
+                    {title: 'Teljesítés', data: 'performance', render: function (data, type, row) { return data ? moment(data).format('YYYY.MM.DD') : ''; }, sClass: "text-center", width:'150px', name: 'performance'},
+                ],
+                buttons: [],
             });
 
         });
