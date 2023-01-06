@@ -2,7 +2,11 @@
     @include('layouts.costumcss')
 @endsection
 
-<div class="form-group col-sm-6">
+@if (!isset($width))
+    <div class="form-group col-sm-6">
+@else
+    <div class="form-group col-sm-{{ $width }}">
+@endif
     <div class="form-group col-sm-12">
         <div class="row">
             <div class="mylabel col-sm-2">

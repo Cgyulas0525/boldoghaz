@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Ecitems;
 use App\Models\Partners;
+use App\Models\Contract;
+use App\Models\Contractpayment;
+
 use Illuminate\Http\Request;
 use Response;
 use DB;
@@ -11,6 +14,7 @@ use App\Classes\ptClass;
 use App\Classes\Contract\contractChild;
 
 use App\Models\Contractcontenttypes;
+use App\Models\Partnerspartnertypes;
 
 class ApiController extends Controller
 {
@@ -42,5 +46,25 @@ class ApiController extends Controller
     public function apiAllButton(Request $request) {
         $cc = new contractChild();
         $cc->allRecords($request->table, $request->id);
+    }
+
+    public function sumContractPaymentAmount(Request $request) {
+        $itemAmount = !is_null($request->itemId) ? Contractpayment::find($request->itemId)->amount : 0;
+        $contractPaymentAmount = Contractpayment::where('contract_id', $request->contractId)->get()->sum('amount');
+        return (($contractPaymentAmount - $itemAmount) + $request->amount);
+    }
+
+    public function ownerFlagSetting(Request $request) {
+        if (!empty($request->partner)) {
+            $ownerPartner = Partnerspartnertypes::where('partnertypes_id', 1)->first();
+            if (!empty($ownerPartner)) {
+                $ownerPartner->partner_id = $request->partner;
+            } else {
+                $ownerPartner = new Partnerspartnertypes();
+                $ownerPartner->partner_id = $request->partner;
+                $ownerPartner->partnertypes_id = 1;
+            }
+            $ownerPartner->save();
+        }
     }
 }

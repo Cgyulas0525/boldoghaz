@@ -3,11 +3,11 @@
     {!! Form::label('partnertypes_id', 'Típus:') !!}
     @if (isset($partnerspartnertypes))
         {!! Form::select('partnertypes_id',
-                    App\Classes\Partners\partnerDataDDDWClass::typesNotInPartnerspartnertypesModify($partnerspartnertypes->partner_id, $partnerspartnertypes->partnertypes_id), $partnerspartnertypes->partnertypes_id,
+                    App\Classes\Partners\partnerDataDDDWClass::typesNotInPartnerspartnertypesModify($partnerspartnertypes->partner_id, $partnerspartnertypes->partnertypes_id, 1), $partnerspartnertypes->partnertypes_id,
                      ['class'=>'select2 form-control cellLabel', 'required' => 'true', 'id' => 'partnertypes_id']) !!}
     @else
         {!! Form::select('partnertypes_id',
-                    App\Classes\Partners\partnerDataDDDWClass::typesNotInPartnerspartnertypes($parentId), null,
+                    App\Classes\Partners\partnerDataDDDWClass::typesNotInPartnerspartnertypes($parentId, 1), null,
                      ['class'=>'select2 form-control cellLabel', 'required' => 'true', 'id' => 'partnertypes_id']) !!}
     @endif
 </div>

@@ -45,9 +45,10 @@
                 serverSide: true,
                 scrollY: 390,
                 scrollX: true,
-                order: [[0, 'asc'], [1, 'asc']],
+                order: [[1, 'asc'], [2, 'asc']],
                 ajax: "{{ route('phonenumbers.index') }}",
                 columns: [
+                    {title: '', data: 'action', sClass: "text-center", width: '200px', name: 'action', orderable: false, searchable: false},
                     {title: 'Partner', data: 'parentName', name: 'parentName'},
                     {title: 'Telefonszám', data: 'phonenumber', name: 'phonenumber'},
                     {title: 'Típus', data: 'typeName', name: 'typeName'},

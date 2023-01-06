@@ -40,6 +40,7 @@ Route::get('/home', [
 ])->name('home');
 
 Route::get('index', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('underconstruction', [DashboardController::class, 'underconstruction'])->name('underConstruction');
 Route::resource('userstatuses', App\Http\Controllers\UserstatusController::class);
 Route::resource('addresstypes', App\Http\Controllers\AddresstypesController::class);
 Route::resource('partnertypes', App\Http\Controllers\PartnertypesController::class);
@@ -137,3 +138,15 @@ Route::resource('contractdeadlineitems', App\Http\Controllers\Contractdeadlineit
 
 
 Route::resource('contractpayments', App\Http\Controllers\ContractpaymentController::class);
+
+
+Route::resource('contractvismaiors', App\Http\Controllers\ContractvismaiorController::class);
+
+
+Route::resource('contractretentions', App\Http\Controllers\ContractretentionController::class);
+
+
+Route::resource('contractpenalties', App\Http\Controllers\ContractpenaltyController::class);
+
+
+Route::resource('contractcontracts', App\Http\Controllers\ContractcontractController::class);

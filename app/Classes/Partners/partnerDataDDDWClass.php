@@ -8,15 +8,19 @@ use App\Models\Partnertypes;
 class partnerDataDDDWClass
 {
 
-    public static function typesNotInPartnerspartnertypes($partner_id) {
-        return [" "] + Partnertypes::whereNotIn('id', function ($query) {
-            $query->from('partnerspartnertypes')->select('partnertypes_id')->where('partner_id', 1)->get();
-        })->pluck('name', 'id')->toArray();
+    public static function typesNotInPartnerspartnertypes($partner_id, $owner = null) {
+        return [" "] + Partnertypes::query()->when($owner, function($query, $owner){
+                $query->where('id', '!=', $owner)->get();
+            })->whereNotIn('id', function ($query) use ($partner_id){
+                $query->from('partnerspartnertypes')->select('partnertypes_id')->where('partner_id', $partner_id)->whereNull('deleted_at')->get();
+            })->pluck('name', 'id')->toArray();
     }
 
-    public static function typesNotInPartnerspartnertypesModify($partner_id, $types_id) {
-        $pt1 = DB::table('partnertypes')->whereNotIn('id', function ($query) use ($partner_id) {
-            $query->from('partnerspartnertypes')->select('partnertypes_id')->where('partner_id', $partner_id)->get();
+    public static function typesNotInPartnerspartnertypesModify($partner_id, $types_id, $owner = null) {
+        $pt1 = DB::table('partnertypes')->when($owner, function($query, $owner){
+            $query->where('id', '!=', $owner)->get();
+        })->whereNotIn('id', function ($query) use ($partner_id) {
+            $query->from('partnerspartnertypes')->select('partnertypes_id')->where('partner_id', $partner_id)->whereNull('deleted_at')->get();
         });
 
         $pt2 = DB::table('partnertypes')->where('id', $types_id)->union($pt1);

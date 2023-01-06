@@ -21,7 +21,7 @@ class Retentiontypes extends Model
     use HasFactory;
 
     public $table = 'retentiontypes';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -59,5 +59,9 @@ class Retentiontypes extends Model
         'deleted_at' => 'nullable'
     ];
 
-    
+    public function contractretention() {
+        return $this->hasMany(ContractRetention::class);
+    }
+
+
 }

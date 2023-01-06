@@ -13,7 +13,7 @@
             <div class="box-body">
                 <div class="col-lg-12 col-md-12 col-xs-12">
                     <section class="content-header">
-                        <h4>Email címek</h4>
+                        <h4>{{ $contract->contractnumber }} számú szerződés kötbérei</h4>
                     </section>
                     @include('flash::message')
                     <div class="clearfix"></div>
@@ -23,6 +23,11 @@
                         </div>
                     </div>
                     <div class="text-center"></div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card-footer" style="float: left;">
+                        <a href="{!! route('contracts.show', $contract->id) !!}" class="btn btn-success">Szerződés</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,12 +50,15 @@
                 serverSide: true,
                 scrollY: 390,
                 scrollX: true,
-                order: [[1, 'asc'], [2, 'asc']],
-                ajax: "{{ route('emails.index') }}",
+                order: [[1, 'asc']],
+                ajax: "{{ route('contractpenalties.index', [ 'id' => $contract->id ]) }}",
                 columns: [
-                    {title: '', data: 'action', sClass: "text-center", width: '200px', name: 'action', orderable: false, searchable: false},
-                    {title: 'Partner', data: 'parentName', name: 'parentName'},
-                    {title: 'Email', data: 'email', name: 'email'},
+                    {title: '<a class="btn btn-primary" title="Felvitel" href="{!! route('contractpenalties.create', [ 'id' => $contract->id ]) !!}"><i class="fa fa-plus-square"></i></a>',
+                        data: 'action', sClass: "text-center", width: '200px', name: 'action', orderable: false, searchable: false},
+                    {title: 'Típus', data: 'penaltytypes', name: 'penaltytypes'},
+                    {title: 'Fázis', data: 'constructionphase', name: 'constructionphase'},
+                    {title: 'Határidő', data: 'deadline', render: function (data, type, row) { return data ? moment(data).format('YYYY.MM.DD') : ''; }, sClass: "text-center", width:'150px', name: 'deadline'},
+                    {title: 'Teljesítés', data: 'performance', render: function (data, type, row) { return data ? moment(data).format('YYYY.MM.DD') : ''; }, sClass: "text-center", width:'150px', name: 'performance'},
                 ]
             });
 

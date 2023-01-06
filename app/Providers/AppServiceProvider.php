@@ -11,6 +11,10 @@ use Auth;
 use App\Classes\Utility\utilityClass;
 use App\Classes\Settlement\settlementClass;
 
+use App\Models\Contractdeadline;
+use App\Observers\ContractdeadlineObserver;
+
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -44,6 +48,8 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('fejlesztő', function() {
             return Auth::user()->userstatus_id == 3;
         });
+
+        Contractdeadline::observe(ContractdeadlineObserver::class);
 
     }
 }

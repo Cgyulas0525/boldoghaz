@@ -24,10 +24,22 @@ class DestroysController extends Controller
         $view = 'layouts.show';
         $model_name = 'App\Models\\'.$table;
         $data = $model_name::find($id);
-        SWAlertClass::choice($id, 'Biztos, hogy törli a tételt?', '/'.$route. '/' . $param, 'Kilép', '/destroyWithParam/'.$table.'/'.$id.'/'.$route. '/'.$param, 'Töröl');
+        $text = 'Törlődik a tétel és a hozzá kapcsolódó adatok! Biztos, hogy törli a tételt?';
+        SWAlertClass::choice($id, $text, '/'.$route. '/' . $param, 'Kilép', '/destroyWithParam/'.$table.'/'.$id.'/'.$route. '/'.$param, 'Töröl');
 
         return view($view)->with('table', $data);
     }
+
+    public function beforeDestroysWithParamArray($table, $id, $route, $param = NULL) {
+        $view = 'layouts.show';
+        $model_name = 'App\Models\\'.$table;
+        $data = $model_name::find($id);
+        $text = 'Törlődik a tétel és a hozzá kapcsolódó adatok! Biztos, hogy törli a tételt?';
+        SWAlertClass::choice($id, $text, '/'.$route. '/' . $param, 'Kilép', '/destroyWithParam/'.$table.'/'.$id.'/'.$route. '/'.$param, 'Töröl');
+
+        return view($view)->with('table', $data);
+    }
+
 
     public function destroy($table, $id, $route) {
         $route .= '.index';

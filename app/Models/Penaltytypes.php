@@ -24,7 +24,7 @@ class Penaltytypes extends Model
     use HasFactory;
 
     public $table = 'penaltytypes';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -71,5 +71,8 @@ class Penaltytypes extends Model
         'deleted_at' => 'nullable'
     ];
 
-    
+    public function contractpenalty() {
+        return $this->hasMany(Contractpenalty::class);
+    }
+
 }

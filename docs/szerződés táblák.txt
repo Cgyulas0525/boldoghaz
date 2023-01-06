@@ -181,7 +181,8 @@ created_at
 updated_at
 deleted_at
 
------------------------------------------
+----------------------------------------- 2022.12.09
+
 
 17 contractvismaior           szerződés vismaior
 
@@ -190,31 +191,13 @@ contract_id
 vismaiortypes_id        vis major típus
 document_name           dokumentum
 document_url
-date                    dátum
+vismaiordate            dátum
 commit                  megjegyzés
 created_at
 updated_at
 deleted_at
 
-
-
-
-
-
-10 contractpenalty        kötbér
-
-id
-contract_id
-penaltytypes_id
-constructionphase_id    kivitelezési fázis
-deadline                határidő
-performance             teljesítés
-commit                  megjegyzés
-created_at
-updated_at
-deleted_at
-
-
+----------------------------------------- 2022.12.09
 
 13 contractretention       szerződés visszatartások
 
@@ -231,17 +214,39 @@ deleted_at
 
 
 
+----------------------------------------- 2022.12.19
+
+
+
+10 contractpenalty        kötbér
+
+id
+contract_id
+partnercontract_id      partner szerződés
+penaltytypes_id
+constructionphase_id    kivitelezési fázis
+deadline                határidő
+performance             teljesítés
+commit                  megjegyzés
+created_at
+updated_at
+deleted_at
+
+
+
+
 18 contractcontract        alvállakozói szerződések
 
 id
 contract_id
 partnercontract_id      partner szerződés
 constructionphase_id    kivitelezési fázis
-document_name                dokumentum
+document_name           dokumentum
 document_url
-date                    dátum
-deadline                 határidő
+//date                    dátum
+deadline                határidő
 settlementdate          teljesítési dátum
+amount                  összeg
 commit                  megjegyzés
 created_at
 updated_at

@@ -33,7 +33,7 @@ class PartnersController extends AppBaseController
             ->addColumn('liveName', function($data) { return $data->liveName; })
             ->addColumn('action', function($row){
                 $btn = "";
-                $btn = '<a href="' . route('partners.edit', [$row->id]) . '"
+                $btn = $btn.'<a href="' . route('partners.edit', [$row->id]) . '"
                              class="edit btn btn-success btn-sm editProduct" title="Módosítás"><i class="fa fa-paint-brush"></i></a>';
                 if ( $row->live == 0) {
                     $btn = $btn.'<a href="' . route('partners.destroy', [$row->id]) . '"

@@ -89,5 +89,13 @@ class Constructionphase extends Model
         return !empty($this->parent_id) ? $ptc->recordFullName('Constructionphase', $this->parent_id, $this->name) : $this->name;
     }
 
+    public function contractpenalty() {
+        return $this->hasMany(Contractpenalty::class);
+    }
+
+    public function contractcontract() {
+        return $this->hasMany(Contractcontract::class);
+    }
+
 
 }

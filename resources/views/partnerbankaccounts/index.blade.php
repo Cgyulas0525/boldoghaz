@@ -45,9 +45,10 @@
                 serverSide: true,
                 scrollY: 390,
                 scrollX: true,
-                order: [[0, 'asc'], [1, 'asc'], [2, 'asc']],
+                order: [[1, 'asc'], [2, 'asc'], [3, 'asc']],
                 ajax: "{{ route('partnerbankaccounts.index') }}",
                 columns: [
+                    {title: '', data: 'action', sClass: "text-center", width: '200px', name: 'action', orderable: false, searchable: false},
                     {title: 'Partner', data: 'partnerName', name: 'partnerName'},
                     {title: 'Pénzintézet', data: 'institutName', name: 'institutName'},
                     {title: 'Bankszámlaszám', data: 'accountnumber', name: 'accountnumber'},
