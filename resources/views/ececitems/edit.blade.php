@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('app_scaffold.app')
 
 @section('content')
     <section class="content-header">
@@ -27,10 +27,11 @@
 
             <div class="card-footer">
                 {!! Form::submit('Ment', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('energyClassifications.edit', $ececitems->energyclassifications_id) }}" class="btn btn-default">Kilép</a>
+                <a href="{{ route('energyClassifications.edit', $ececitems->energyclassifications_id) }}"
+                   class="btn btn-default">Kilép</a>
             </div>
 
-           {!! Form::close() !!}
+            {!! Form::close() !!}
 
         </div>
     </div>

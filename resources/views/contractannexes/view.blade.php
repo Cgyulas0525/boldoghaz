@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('app_scaffold.app')
 
 @section('content')
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>{{ $contractannex->contract->contractnumber }} számú szerződés melléklete: {{ $contractannex->document_name }}</h1>
+                    <h1>{{ $contractannex->contract->contractnumber }} számú szerződés
+                        melléklete: {{ $contractannex->document_name }}</h1>
                 </div>
             </div>
         </div>

@@ -34,7 +34,7 @@
         <div class="form-group col-lg-6">
             <div class="form-group col-lg-12">
                 {!! Form::label('addresstypes_id', 'Típus:') !!}
-                {!! Form::select('addresstypes_id', App\Http\Controllers\AddresstypesController::DDDW(), null,
+                {!! Form::select('addresstypes_id', \App\Http\Controllers\Dictionaries\AddresstypesController::DDDW(), null,
                          ['class'=>'select2 form-control', 'id' => 'addresstypes_id']) !!}
                 {!! Form::text('addresstypes_text', isset($address) ? $address->addresstypes->name : null,
                     ['class' => 'form-control','maxlength' => 250, 'id' => 'addresstypes_text', 'readonly' => 'true']) !!}

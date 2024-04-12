@@ -4,8 +4,8 @@ namespace App\Models;
 
 use App\Classes\Utility\utilityClass;
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Contractnoncontenttypes

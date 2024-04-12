@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('app_scaffold.app')
 
 @section('content')
     <section class="content-header">
@@ -31,7 +31,7 @@
                 <a href="{{ route('changePartnerLive', $partners->id) }}" class="btn btn-danger"> Aktív </a>
             </div>
 
-           {!! Form::close() !!}
+            {!! Form::close() !!}
 
             <div class="col-lg-12 topmargin1em">
                 <div class="row">

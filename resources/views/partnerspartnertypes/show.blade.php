@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('app_scaffold.app')
 
 @section('content')
     <section class="content-header">
@@ -22,7 +22,8 @@
 
             <div class="card-footer">
                 <a href="#" id="destroyBtn" class="btn btn-danger destroyBtn">Törlés</a>
-                <a href="{{ route('partners.edit', $partnerspartnertypes->partner_id) }}" class="btn btn-default">Kilép</a>
+                <a href="{{ route('partners.edit', $partnerspartnertypes->partner_id) }}"
+                   class="btn btn-default">Kilép</a>
             </div>
 
         </div>

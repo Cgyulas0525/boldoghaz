@@ -1,21 +1,21 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AddressController;
+use App\Http\Controllers\ConstructionphaseController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DestroysController;
 use App\Http\Controllers\EcecitemsController;
+use App\Http\Controllers\EmailsController;
 use App\Http\Controllers\EqeqitemsController;
-use App\Http\Controllers\PartnertypeChildController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PartnerbankaccountsController;
 use App\Http\Controllers\PartnerdatasheetController;
 use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\PartnerspartnertypesController;
-use App\Http\Controllers\AddressController;
+use App\Http\Controllers\PartnertypeChildController;
 use App\Http\Controllers\PhonenumbersController;
-use App\Http\Controllers\EmailsController;
-use App\Http\Controllers\PartnerbankaccountsController;
-use App\Http\Controllers\DestroysController;
-use App\Http\Controllers\ConstructionphaseController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 
 /*
@@ -41,9 +41,9 @@ Route::get('/home', [
 
 Route::get('index', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('underconstruction', [DashboardController::class, 'underconstruction'])->name('underConstruction');
-Route::resource('userstatuses', App\Http\Controllers\UserstatusController::class);
-Route::resource('addresstypes', App\Http\Controllers\AddresstypesController::class);
-Route::resource('partnertypes', App\Http\Controllers\PartnertypesController::class);
+Route::resource('userstatuses', \App\Http\Controllers\Dictionaries\UserstatusController::class);
+Route::resource('addresstypes', \App\Http\Controllers\Dictionaries\AddresstypesController::class);
+Route::resource('partnertypes', \App\Http\Controllers\Dictionaries\PartnertypesController::class);
 Route::resource('users', App\Http\Controllers\UsersController::class);
 Route::resource('tables', App\Http\Controllers\TablesController::class);
 Route::resource('phonenumbertypes', App\Http\Controllers\PhonenumbertypesController::class);
@@ -103,12 +103,12 @@ Route::get('beforeDestroys/{table}/{id}/{route}', [DestroysController::class, 'b
 Route::get('beforeDestroysWithParam/{table}/{id}/{route}/{param}', [DestroysController::class, 'beforeDestroysWithParam'])->name('beforeDestroysWithParam');
 
 Route::resource('retentiontypes', App\Http\Controllers\RetentiontypesController::class);
-Route::resource('annextypes', App\Http\Controllers\AnnextypesController::class);
+Route::resource('annextypes', \App\Http\Controllers\Dictionaries\AnnextypesController::class);
 Route::resource('vismaiortypes', App\Http\Controllers\VismaiortypesController::class);
 Route::resource('contracts', App\Http\Controllers\ContractController::class);
 Route::resource('menus', App\Http\Controllers\MenuController::class);
-Route::resource('contractcontenttypes', App\Http\Controllers\ContractcontenttypesController::class);
-Route::resource('contractnoncontenttypes', App\Http\Controllers\ContractnoncontenttypesController::class);
+Route::resource('contractcontenttypes', \App\Http\Controllers\ProjectDictionaries\ContractcontenttypesController::class);
+Route::resource('contractnoncontenttypes', \App\Http\Controllers\ProjectDictionaries\ContractnoncontenttypesController::class);
 Route::resource('contractcustomerprovidetypes', App\Http\Controllers\ContractcustomerprovidetypesController::class);
 
 Route::resource('penaltytypes', App\Http\Controllers\PenaltytypesController::class);

@@ -1,7 +1,7 @@
 @section('css')
     <link rel="stylesheet" href="pubic/css/app.css">
-    @include('layouts.datatables_css')
-    @include('layouts.costumcss')
+    @include('app_scaffold.css.datatables_css')
+    @include('app_scaffold.css.costumcss')
 @endsection
 
 <!-- Name Field -->
@@ -34,7 +34,7 @@
 @if ( isset($partnertypes->id))
     <div class="col-sm-6">
         <div class="box box-primary">
-            <div class="box-body"  >
+            <div class="box-body">
                 <table class="table table-hover table-bordered partners-table" style="width: 100%;"></table>
             </div>
         </div>
@@ -43,7 +43,7 @@
 @endif
 
 @section('scripts')
-    @include('layouts.datatables_js')
+    @include('app_scaffold.js.datatables_js')
 
     <script type="text/javascript">
         $(function () {
@@ -62,8 +62,15 @@
                 // order: [[1, 'asc']],
                 ajax: "{{ route('cpChildIndex', isset($constructionphase->id) ? $constructionphase->id : 0 ) }}",
                 columns: [
-                    {title: '<a class="btn btn-primary" title="Felvitel" href="{!! route('cpChildCreate', $constructionphase->id) !!}"><i class="fa fa-plus-square"></i></a>',
-                        data: 'action', sClass: "text-center", width: '200px', name: 'action', orderable: false, searchable: false},
+                    {
+                        title: '<a class="btn btn-primary" title="Felvitel" href="{!! route('cpChildCreate', $constructionphase->id) !!}"><i class="fa fa-plus-square"></i></a>',
+                        data: 'action',
+                        sClass: "text-center",
+                        width: '200px',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
+                    },
                     {title: 'Név', data: 'name', name: 'name'},
                 ],
                 buttons: []

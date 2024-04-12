@@ -1,5 +1,5 @@
 @section('css')
-    @include('layouts.costumcss')
+    @include('app_scaffold.css.costumcss')
 @endsection
 
 @foreach($array as $key => $value)

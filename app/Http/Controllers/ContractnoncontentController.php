@@ -2,22 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Contract\contractChild;
 use App\Http\Requests\CreateContractnoncontentRequest;
 use App\Http\Requests\UpdateContractnoncontentRequest;
-use App\Repositories\ContractnoncontentRepository;
-use App\Http\Controllers\AppBaseController;
-
+use App\Models\Contract;
 use App\Models\Contractnoncontent;
 use App\Models\Contractnoncontenttypes;
-use App\Models\Contract;
-use App\Classes\Contract\contractChild;
-
-use Illuminate\Http\Request;
-use Flash;
-use Response;
+use App\Repositories\ContractnoncontentRepository;
 use Auth;
-use DB;
 use DataTables;
+use Illuminate\Http\Request;
+use Response;
 
 class ContractnoncontentController extends AppBaseController
 {

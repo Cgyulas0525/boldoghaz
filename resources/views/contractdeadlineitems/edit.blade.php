@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('app_scaffold.app')
 
 @section('content')
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>{{ $contractdeadlineitem->contractdeadline->contract->contractnumber }} számú szerződés {{ $contractdeadlineitem->contractdeadline->constructionphase->name }} határidei</h1>
+                    <h1>{{ $contractdeadlineitem->contractdeadline->contract->contractnumber }} számú
+                        szerződés {{ $contractdeadlineitem->contractdeadline->constructionphase->name }} határidei</h1>
                 </div>
             </div>
         </div>
@@ -27,10 +28,11 @@
 
             <div class="card-footer">
                 {!! Form::submit('Ment', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('contractdeadlineitemIndex', $contractdeadlineitem->contractdeadline->id) }}" class="btn btn-default">Kilép</a>
+                <a href="{{ route('contractdeadlineitemIndex', $contractdeadlineitem->contractdeadline->id) }}"
+                   class="btn btn-default">Kilép</a>
             </div>
 
-           {!! Form::close() !!}
+            {!! Form::close() !!}
 
         </div>
     </div>

@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use App\Models\Contractnoncontenttypes;
+use Illuminate\Foundation\Http\FormRequest;
 
 class CreateContractnoncontenttypesRequest extends FormRequest
 {

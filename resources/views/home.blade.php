@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('app_scaffold.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
+    <div class="container">
+        <div class="row">
 
-        @include('dashboard.dashboard')
+            @include('dashboard.dashboard')
 
+        </div>
     </div>
-</div>
 @endsection

@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('app_scaffold.app')
 
 @section('content')
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>{{ $contractdeadline->contract->contractnumber }} számú szerződés {{$contractdeadline->constructionphase->name}} rész határidei</h1>
+                    <h1>{{ $contractdeadline->contract->contractnumber }} számú
+                        szerződés {{$contractdeadline->constructionphase->name}} rész határidei</h1>
                 </div>
             </div>
         </div>
@@ -29,9 +30,10 @@
 
             <div class="card-footer">
                 {!! Form::submit('Ment', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('contractdeadlineitemIndex', $contractdeadline->id) }}" class="btn btn-default">Kilép</a>
-{{--                <a href="{!! route('contractDeadLineIndex', $contractdeadline->contract->id) !!}" class="btn btn-success">Kivitelezési fázisok</a>--}}
-{{--                <a href="{!! route('contracts.show', $contractdeadline->contract->id) !!}" class="btn btn-success">Szerződés</a>--}}
+                <a href="{{ route('contractdeadlineitemIndex', $contractdeadline->id) }}"
+                   class="btn btn-default">Kilép</a>
+                {{--                <a href="{!! route('contractDeadLineIndex', $contractdeadline->contract->id) !!}" class="btn btn-success">Kivitelezési fázisok</a>--}}
+                {{--                <a href="{!! route('contracts.show', $contractdeadline->contract->id) !!}" class="btn btn-success">Szerződés</a>--}}
             </div>
 
             {!! Form::close() !!}

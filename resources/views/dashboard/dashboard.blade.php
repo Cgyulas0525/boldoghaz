@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('app_scaffold.app')
 
 @section('css')
     <link rel="stylesheet" href="public/css/app.css">
     <link rel="stylesheet" href="public/css/datatables.css">
     <link rel="stylesheet" href="public/css/Highcharts.css">
-    @include('layouts.costumcss')
+    @include('app_scaffold.css.costumcss')
 @endsection
 
 @section('content')
@@ -21,9 +21,9 @@
 @endsection
 
 @section('scripts')
-    @include('layouts.datatables_js')
-    @include('layouts.RowCallBack_js')
-    @include('layouts.highcharts_js')
+    @include('app_scaffold.js.datatables_js')
+    @include('functions.RowCallBack_js')
+    @include('app_scaffold.js.highcharts_js')
     @include('hsjs.hsjs')
 
     <script type="text/javascript">

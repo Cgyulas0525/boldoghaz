@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use App\Models\Contractnoncontenttypes;
+use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateContractnoncontenttypesRequest extends FormRequest
 {
@@ -25,7 +25,7 @@ class UpdateContractnoncontenttypesRequest extends FormRequest
     public function rules()
     {
         $rules = Contractnoncontenttypes::$rules;
-        
+
         return $rules;
     }
 }

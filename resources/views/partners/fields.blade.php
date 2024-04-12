@@ -1,4 +1,4 @@
-@include('layouts.css')
+@include('app_scaffold.css.css')
 
 <!-- Name Field -->
 <div class="col-lg-4">
@@ -31,7 +31,7 @@
 </div>
 
 @section('scripts')
-    @include('layouts.datatables_js')
+    @include('app_scaffold.js.datatables_js')
     @include('functions.ajax_js')
     @include('partners.tables.ppts_js')
     @include('partners.tables.pemails_js')
@@ -95,11 +95,11 @@
         }
 
         function makeTables() {
-            table        = pptsTable();
-            tableEmails  = pemailsTable();
-            tablePhones  = pphonesTable();
+            table = pptsTable();
+            tableEmails = pemailsTable();
+            tablePhones = pphonesTable();
             tableAddress = paddressTable();
-            tablePba     = pbaTable();
+            tablePba = pbaTable();
         }
 
         hideShow(liveNumber());

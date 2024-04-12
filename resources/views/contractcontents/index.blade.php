@@ -1,15 +1,15 @@
-@extends('layouts.app')
+@extends('app_scaffold.app')
 
 @section('css')
     <link rel="stylesheet" href="pubic/css/app.css">
-    @include('layouts.datatables_css')
-    @include('layouts.costumcss')
+    @include('app_scaffold.css.datatables_css')
+    @include('app_scaffold.css.costumcss')
 @endsection
 
 @section('content')
     <div class="content">
         <div class="clearfix"></div>
-        <div class="box box-primary" >
+        <div class="box box-primary">
             <div class="box-body">
                 <div class="col-lg-12 col-md-12 col-xs-12">
                     <section class="content-header">
@@ -18,7 +18,7 @@
                     @include('flash::message')
                     <div class="clearfix"></div>
                     <div class="box box-primary">
-                        <div class="box-body"  >
+                        <div class="box-body">
                             <table class="table table-hover table-bordered partners-table" style="width: 100%;"></table>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
 @endsection
 
 @section('scripts')
-    @include('layouts.datatables_js')
+    @include('app_scaffold.js.datatables_js')
     @include('functions.contractChild.contractChild_js')
 
     <script type="text/javascript">
@@ -54,11 +54,11 @@
             });
 
             $.ajax({
-                type:"GET",
-                url:"{{url('contractTypesNotIn')}}",
-                data: { id: contractId, table: 'contractcontent' },
-                success:function(res){
-                    if(res){
+                type: "GET",
+                url: "{{url('contractTypesNotIn')}}",
+                data: {id: contractId, table: 'contractcontent'},
+                success: function (res) {
+                    if (res) {
                         if (res > 0) {
                             console.log(res)
                             action = '<a class="btn btn-primary" title="Felvitel" href="{!! route('contractContentCreate', $contract->id) !!}"><i class="fa fa-plus-square"></i></a>';
@@ -75,18 +75,25 @@
                         paging: false,
                         ajax: "{{ route('contractcontentIndex', $contract->id) }}",
                         columns: [
-                            {title: action,
-                                data: 'action', sClass: "text-center", width: '200px', name: 'action', orderable: false, searchable: false},
+                            {
+                                title: action,
+                                data: 'action',
+                                sClass: "text-center",
+                                width: '200px',
+                                name: 'action',
+                                orderable: false,
+                                searchable: false
+                            },
                             {title: 'Tartalmazza', data: 'contractcontenttypes', name: 'contractcontenttypes'},
                             {title: 'Id', data: 'id', name: 'id'},
                         ],
                         columnDefs: [
                             {
-                                "targets": [ 2 ],
+                                "targets": [2],
                                 "visible": false
                             },
                             {
-                                "targets": [ 0, 1 ],
+                                "targets": [0, 1],
                                 "orderable": false
                             },
                         ]

@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('app_scaffold.app')
 
 @section('content')
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>{{ $partnerbankaccounts->partnerName }} - {{ $partnerbankaccounts->institutName }} - {{ $partnerbankaccounts->accountnumber }}</h1>
+                    <h1>{{ $partnerbankaccounts->partnerName }} - {{ $partnerbankaccounts->institutName }}
+                        - {{ $partnerbankaccounts->accountnumber }}</h1>
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-default float-right"
@@ -28,7 +29,8 @@
 
             <div class="card-footer">
                 <a href="#" id="destroyBtn" class="btn btn-danger destroyBtn">Törlés</a>
-                <a href="{{ route('partners.edit', $partnerbankaccounts->partners_id) }}" class="btn btn-default">Kilép</a>
+                <a href="{{ route('partners.edit', $partnerbankaccounts->partners_id) }}"
+                   class="btn btn-default">Kilép</a>
             </div>
 
         </div>

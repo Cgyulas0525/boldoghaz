@@ -23,11 +23,11 @@ class ContractnoncontenttypesFactory extends Factory
     {
         return [
             'name' => $this->faker->word,
-        'types' => $this->faker->randomDigitNotNull,
-        'commit' => $this->faker->word,
-        'created_at' => $this->faker->date('Y-m-d H:i:s'),
-        'updated_at' => $this->faker->date('Y-m-d H:i:s'),
-        'deleted_at' => $this->faker->date('Y-m-d H:i:s')
+            'types' => $this->faker->randomDigitNotNull,
+            'commit' => $this->faker->word,
+            'created_at' => $this->faker->date('Y-m-d H:i:s'),
+            'updated_at' => $this->faker->date('Y-m-d H:i:s'),
+            'deleted_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

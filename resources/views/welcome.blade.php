@@ -45,7 +45,7 @@
     <div class="login-logo">
         <a href="{{ url('/home') }}"><img src={{ URL::asset('/public/img/BoldogHaz.png') }} style="width: 50%; height: 50%;" class="img-circle" alt="Boldogház" ></a>
         </br>
-        <a><h1>Boldogház</a>
+        <a><h1>NewApp</a>
     </div>
 
     <!-- /.login-logo -->
